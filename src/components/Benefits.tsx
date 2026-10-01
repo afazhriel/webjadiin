@@ -42,50 +42,50 @@ export const Benefits: React.FC = () => {
   ];
 
   return (
-    <section id="benefits" className="py-24 bg-slate-900/40 relative border-b border-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="benefits" className="py-14 sm:py-20 lg:py-24 bg-background relative border-b border-border">
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1 rounded-full">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
             KEUNGGULAN UTAMA
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-grotesk leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
             Kenapa Memilih Layanan NEXADIGITAL?
           </h2>
-          <p className="text-base text-slate-300">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             6 alasan utama mengapa pemilik bisnis mempercayakan pengerjaan website profesional kepada tim kami.
           </p>
         </div>
 
         {/* 6 Benefits Numbered Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
             return (
               <div
                 key={idx}
-                className="group relative p-8 rounded-3xl bg-slate-950/70 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
+                className="group relative p-5 sm:p-8 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 sm:hover:-translate-y-1.5 flex flex-col justify-between shadow-theme max-w-full"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500 font-grotesk">
+                  <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6">
+                    <span className="text-2xl sm:text-3xl font-black text-primary font-sans">
                       {benefit.number}
                     </span>
-                    <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white font-grotesk mb-2 group-hover:text-sky-300 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-card-foreground font-sans mb-2 group-hover:text-primary transition-colors max-w-full">
                     {benefit.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {benefit.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-900 flex items-center justify-between text-xs text-sky-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-5 sm:mt-6 pt-4 border-t border-border flex items-center justify-between gap-2 text-xs text-primary font-medium opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
                   <span>Standard Kualitas Tinggi</span>
                   <span>✓ Verified</span>
                 </div>

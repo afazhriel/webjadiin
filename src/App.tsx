@@ -10,6 +10,7 @@ import { Benefits } from '@/components/Benefits';
 import { Promotion } from '@/components/Promotion';
 import { HowItWorks } from '@/components/HowItWorks';
 import { Portfolio } from '@/components/Portfolio';
+import { InfiniteGallerySection } from '@/components/InfiniteGallerySection';
 import { Testimonials } from '@/components/Testimonials';
 import { FAQ } from '@/components/FAQ';
 import { FinalCTA } from '@/components/FinalCTA';
@@ -17,7 +18,7 @@ import { Footer } from '@/components/Footer';
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-slate-950 text-slate-100 overflow-x-hidden selection:bg-sky-500 selection:text-slate-950">
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground font-sans">
       
       {/* Navigation Header */}
       <Navbar />
@@ -61,7 +62,10 @@ export default function App() {
       {/* 9. HOW IT WORKS SECTION */}
       <HowItWorks />
 
-      {/* 10. PORTFOLIO SECTION */}
+      {/* 10. INFINITE 3D PHOTOGRAPHY GALLERY */}
+      <InfiniteGallerySection />
+
+      {/* 11. PORTFOLIO SECTION */}
       <Portfolio />
 
       {/* 11. TESTIMONIALS SECTION */}

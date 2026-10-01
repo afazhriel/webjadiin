@@ -4,29 +4,347 @@
 
 @layer base {
   :root {
-    --font-jakarta: 'Plus Jakarta Sans', sans-serif;
-    --font-grotesk: 'Space Grotesk', sans-serif;
+    --background: #FDFCFE;
+    --foreground: #0A050D;
+
+    --card: #FFFFFF;
+    --card-foreground: #0A050D;
+
+    --popover: #FFFFFF;
+    --popover-foreground: #0A050D;
+
+    --primary: #03035e;
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #e2ebfd;
+    --secondary-foreground: #0248d4;
+
+    --muted: #F0EEF2;
+    --muted-foreground: #635D69;
+
+    --accent: #e5e8ff;
+    --accent-foreground: #0248d4;
+
+    --destructive: #E11D48;
+    --destructive-foreground: #FFFFFF;
+
+    --border: #E6E1E9;
+    --input: #E6E1E9;
+
+    --ring: #3d7eff;
+
+    --chart-1: #0248d4;
+    --chart-2: #8B5CF6;
+    --chart-3: #D946EF;
+    --chart-4: #F43F5E;
+    --chart-5: #F97316;
+
+    --sidebar: #e2ebfd;
+    --sidebar-foreground: #02173b;
+    --sidebar-primary: #FDFCFE;
+    --sidebar-primary-foreground: #11172c;
+    --sidebar-accent: #1a1d42;
+    --sidebar-accent-foreground: #FFFFFF;
+    --sidebar-border: #1b1a42;
+    --sidebar-ring: #232986;
+
+    --font-sans: Bricolage Grotesque, ui-sans-serif, sans-serif, system-ui;
+    --font-serif: Georgia, serif;
+    --font-mono: JetBrains Mono, monospace;
+
+    --radius: 1.25rem;
+
+    --shadow-color: 0, 0, 0;
+    --shadow-opacity: 0.1;
+    --shadow-blur: 10px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 4px;
+
+    --letter-spacing: -0.01em;
+    --spacing: 0.25rem;
   }
-  
+
+  .dark {
+    --background: #020409;
+    --foreground: #FDFCFE;
+
+    --card: #060a13;
+    --card-foreground: #FDFCFE;
+
+    --popover: #060913;
+    --popover-foreground: #FDFCFE;
+
+    --primary: #0f2ea9;
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #11172c;
+    --secondary-foreground: #FDFCFE;
+
+    --muted: #0c1022;
+    --muted-foreground: #9999a8;
+
+    --accent: #1a1f42;
+    --accent-foreground: #FDFCFE;
+
+    --destructive: #811D33;
+    --destructive-foreground: #FFFFFF;
+
+    --border: #1b1a42;
+    --input: #1a2142;
+
+    --ring: #232686;
+
+    --chart-1: #5f78f7;
+    --chart-2: #ef9b4d;
+    --chart-3: #F43F5E;
+    --chart-4: #F97316;
+    --chart-5: #232686;
+
+    --sidebar: #0a0e1e;
+    --sidebar-foreground: #81839c;
+    --sidebar-primary: #FDFCFE;
+    --sidebar-primary-foreground: #0a0d1e;
+    --sidebar-accent: #11132c;
+    --sidebar-accent-foreground: #FDFCFE;
+    --sidebar-border: #11122c;
+    --sidebar-ring: #232986;
+
+    --font-sans: Bricolage Grotesque, ui-sans-serif, sans-serif, system-ui;
+    --font-serif: Georgia, serif;
+    --font-mono: JetBrains Mono, monospace;
+
+    --radius: 1.25rem;
+
+    --shadow-color: 0, 0, 0;
+    --shadow-opacity: 0.5;
+    --shadow-blur: 20px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0px;
+    --shadow-offset-y: 10px;
+
+    --letter-spacing: -0.01em;
+    --spacing: 0.25rem;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  /* ============================================================
+     GLOBAL RESPONSIVE FOUNDATION
+     Goal: mobile viewport first (320px) -> tablet -> desktop,
+     without ever forcing the user to enable "Desktop site".
+     NOTE: only `overflow-x` is hidden. `overflow: hidden` on
+     body/html is never used, so vertical scrolling stays intact.
+     ============================================================ */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
   html {
-    font-family: var(--font-jakarta);
-    color-scheme: dark;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    letter-spacing: var(--letter-spacing);
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Media can never push the layout wider than the viewport. */
+  img,
+  svg,
+  video,
+  canvas,
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+  }
+
+  /* Long words / URLs must wrap instead of overflowing. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  li,
+  td,
+  th,
+  a,
+  label,
+  button {
+    overflow-wrap: break-word;
+  }
+
+  /* Anchor targets are not hidden behind the fixed navbar. */
+  section[id],
+  div[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  /* Comfortable tap behaviour: no 300ms delay, no blue flash,
+     and no accidental double-tap zoom on interactive elements. */
+  button,
+  a,
+  [role='button'],
+  summary,
+  label {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Comfortable focus ring on touch devices too. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
   }
 }
 
-/* Custom Scrollbar */
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY SYSTEM
+   Mobile-first scale so headings never overflow 320px screens.
+   ============================================================ */
+@layer components {
+  .heading-responsive {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  @media (min-width: 380px) {
+    .heading-responsive {
+      font-size: 1.75rem;
+    }
+  }
+  @media (min-width: 640px) {
+    .heading-responsive {
+      font-size: 2.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .heading-responsive {
+      font-size: 3rem;
+    }
+  }
+
+  .body-responsive {
+    font-size: 0.875rem;
+    line-height: 1.65;
+  }
+  @media (min-width: 640px) {
+    .body-responsive {
+      font-size: 1rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .body-responsive {
+      font-size: 1.0625rem;
+    }
+  }
+
+  /* Standard responsive horizontal gutter: px-4 sm:px-6 lg:px-8 */
+  .container-responsive {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-responsive {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-responsive {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Vertical rhythm: tight on mobile, spacious on desktop. */
+  .section-responsive {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  @media (min-width: 640px) {
+    .section-responsive {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-responsive {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Minimum comfortable touch target (~44px). */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Small phones: keep keyline decorations from being too loud. */
+@media (max-width: 359px) {
+  .bg-grid-pattern {
+    background-size: 28px 28px;
+  }
+}
+
+/* Users who prefer reduced motion: kill decorative loops only. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
+/* Custom Scrollbar using design tokens */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #030611;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: var(--muted);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #026fc7;
+  background: var(--primary);
 }
 
 /* Film Grain Overlay */
@@ -49,28 +367,24 @@
     linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
 }
 
-/* 3D Glassmorphism & Shadow Depth */
+/* Glassmorphism & Card Depth using Design Tokens */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
+  background: var(--card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
 }
 
 .glass-badge {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--accent);
+  color: var(--accent-foreground);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  border: 1px solid var(--border);
 }
 
 .card-physical-depth {
-  box-shadow: 
-    0 20px 50px -10px rgba(0, 0, 0, 0.5),
-    0 0 40px 0 rgba(2, 111, 199, 0.25),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) rgba(var(--shadow-color), var(--shadow-opacity));
 }
 
 /* Perspective utilities */
@@ -81,7 +395,7 @@
   transform-style: preserve-3d;
 }
 
-/* Custom Animation Utility */
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }

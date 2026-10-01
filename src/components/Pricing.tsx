@@ -5,111 +5,111 @@ import { getWhatsAppLink } from '../data/config';
 
 export const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-24 bg-slate-900/90 relative overflow-hidden">
+    <section id="pricing" className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
       
       {/* Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] bg-accent/20 rounded-full blur-[110px] sm:blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1 rounded-full">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
             PAKET HARGA TRANSPARAN
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-grotesk leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
             Investasi Terbaik Terjangkau untuk Masa Depan Bisnis Anda
           </h2>
-          <p className="text-base text-slate-300">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Tanpa biaya tersembunyi. Dapatkan hasil maksimal berkelas profesional dengan garansi penuh dan layanan maintenance.
           </p>
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {PRICING_PACKAGES.map((pkg: PricingPackage) => {
             const isPopular = pkg.isPopular;
 
             return (
               <div
                 key={pkg.id}
-                className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative rounded-xl p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 max-w-full ${
                   isPopular
-                    ? 'bg-gradient-to-b from-sky-950 via-slate-900 to-slate-950 border-2 border-sky-400 shadow-2xl shadow-sky-500/20 lg:-translate-y-3 z-20'
-                    : 'bg-slate-950/80 border border-slate-800 hover:border-slate-700'
+                    ? 'bg-accent/40 border-2 border-primary shadow-theme lg:-translate-y-3 z-20'
+                    : 'bg-card border border-border hover:border-ring'
                 }`}
               >
                 {/* Popular Badge */}
                 {isPopular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-sky-400 to-blue-500 text-slate-950 font-black text-xs tracking-wider uppercase shadow-md flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>PALING POPULER & DIIMPIKAN</span>
+                  <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 max-w-[calc(100%-0.75rem)] px-3 sm:px-4 py-1 rounded-full bg-primary text-primary-foreground font-black text-[10px] sm:text-xs tracking-wide sm:tracking-wider uppercase shadow-theme flex items-center gap-1.5">
+                    <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
+                    <span className="truncate">PALING POPULER & DIIMPIKAN</span>
                   </div>
                 )}
 
                 <div>
                   {/* Package Title & Tagline */}
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-black text-white font-grotesk tracking-wide">
+                  <div className="mb-5 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl font-black text-card-foreground font-sans tracking-wide">
                       {pkg.name}
                     </h3>
-                    <p className="text-xs text-slate-400 mt-1 min-h-[32px]">
+                    <p className="text-xs text-muted-foreground mt-1">
                       {pkg.tagline}
                     </p>
                   </div>
 
                   {/* Pricing Tag */}
-                  <div className="mb-8 p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80">
-                    <div className="text-xs font-semibold text-rose-400 line-through">
+                  <div className="mb-6 sm:mb-8 p-3 sm:p-4 rounded-xl bg-card border border-border">
+                    <div className="text-xs font-semibold text-destructive line-through">
                       {pkg.originalPrice}
                     </div>
-                    <div className="flex items-baseline gap-1 mt-0.5">
-                      <span className="text-3xl sm:text-4xl font-black text-white font-grotesk tracking-tight">
+                    <div className="flex flex-wrap items-baseline gap-1 mt-0.5">
+                      <span className="text-2xl sm:text-4xl font-black text-card-foreground font-sans tracking-tight">
                         {pkg.price}
                       </span>
-                      <span className="text-xs text-slate-400">/sekali bayar</span>
+                      <span className="text-[11px] sm:text-xs text-muted-foreground">/sekali bayar</span>
                     </div>
-                    <div className="mt-2 text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+                    <div className="mt-2 text-[11px] text-accent-foreground font-medium flex items-start gap-1">
                       <span>✓ Tanpa biaya bulanan berulang</span>
                     </div>
                   </div>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-3 mb-8">
-                    <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <div className="space-y-3 mb-6 sm:mb-8">
+                    <div className="text-[11px] sm:text-xs font-bold text-muted-foreground uppercase tracking-wider">
                       FASILITAS LENGKAP:
                     </div>
                     {pkg.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-200">
+                      <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-card-foreground">
                         <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                          isPopular ? 'bg-sky-400 text-slate-950' : 'bg-slate-800 text-sky-400'
+                          isPopular ? 'bg-primary text-primary-foreground' : 'bg-muted text-primary'
                         }`}>
                           <Check className="w-3 h-3 stroke-[3]" />
                         </div>
-                        <span>{feature}</span>
+                        <span className="min-w-0">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* CTA Action */}
-                <div className="space-y-3 pt-6 border-t border-slate-800">
+                <div className="space-y-3 pt-5 sm:pt-6 border-t border-border">
                   <a
                     href={getWhatsAppLink(pkg.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full py-4 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 shadow-lg ${
+                    className={`w-full min-h-[48px] py-3.5 sm:py-4 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 shadow-theme ${
                       isPopular
-                        ? 'bg-sky-400 hover:bg-sky-300 text-slate-950 shadow-sky-400/25'
-                        : 'bg-slate-800 hover:bg-slate-700 text-white border border-slate-700'
+                        ? 'bg-primary hover:opacity-90 text-primary-foreground'
+                        : 'bg-secondary hover:bg-primary hover:text-primary-foreground text-secondary-foreground border border-border'
                     }`}
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <MessageSquare className="w-4 h-4 shrink-0" />
                     <span>{pkg.ctaText}</span>
                   </a>
 
-                  <div className="text-center text-[11px] text-slate-400 flex items-center justify-center gap-1">
-                    <HelpCircle className="w-3 h-3 text-slate-500" />
+                  <div className="text-center text-[11px] text-muted-foreground flex items-start justify-center gap-1">
+                    <HelpCircle className="w-3 h-3 shrink-0 mt-0.5 text-muted-foreground" />
                     <span>{pkg.supportInfo}</span>
                   </div>
                 </div>
@@ -120,9 +120,9 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* Custom Project Note */}
-        <div className="mt-12 text-center text-sm text-slate-400 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 max-w-2xl mx-auto">
-          Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-sky-300 font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
-          <a href={getWhatsAppLink("Halo NEXADIGITAL, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-sky-400 underline font-semibold hover:text-sky-300">
+        <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-card p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
+          Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-primary font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
+          <a href={getWhatsAppLink("Halo NEXADIGITAL, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-primary underline font-semibold hover:opacity-80">
             Hubungi Tim Teknis
           </a>
         </div>

@@ -13,40 +13,40 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export const Services: React.FC = () => {
   return (
-    <section id="services" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="services" className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
       
       {/* Background Lights */}
-      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-sky-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 -left-40 w-72 h-72 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[110px] sm:blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 border border-sky-500/20 px-3.5 py-1 rounded-full">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
             SOLUSI DARI KAMI
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-grotesk leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
             Layanan Pembuatan Website & Digital Presence Profesional
           </h2>
-          <p className="text-base text-slate-300">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Kami menyediakan ekosistem solusi digital terlengkap, dikerjakan oleh tim teknis & UI/UX designer berpengalaman.
           </p>
         </div>
 
         {/* Services Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {SERVICES.map((service: ServiceItem) => {
             const IconComponent = iconMap[service.icon] || Building2;
             
             return (
               <div
                 key={service.id}
-                className="group relative rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-sky-500/50 p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-500/10"
+                className="group relative rounded-xl bg-card border border-border hover:border-ring p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 sm:hover:-translate-y-2 shadow-theme max-w-full"
               >
                 {/* Top Badge if any */}
                 {service.badge && (
-                  <div className="absolute top-6 right-6">
-                    <span className="text-[11px] font-bold text-sky-300 bg-sky-500/15 border border-sky-500/30 px-3 py-1 rounded-full">
+                  <div className="absolute top-5 right-5 sm:top-6 sm:right-6 max-w-[55%]">
+                    <span className="block text-[10px] sm:text-[11px] font-bold text-accent-foreground bg-accent border border-border px-2.5 sm:px-3 py-1 rounded-full truncate">
                       {service.badge}
                     </span>
                   </div>
@@ -54,24 +54,24 @@ export const Services: React.FC = () => {
 
                 <div>
                   {/* Service Icon */}
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500/20 to-blue-600/20 border border-sky-400/30 flex items-center justify-center text-sky-400 mb-6 group-hover:scale-110 transition-transform">
-                    <IconComponent className="w-7 h-7" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground mb-5 sm:mb-6 group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-2xl font-bold text-white font-grotesk mb-3 group-hover:text-sky-300 transition-colors">
+                  <h3 className="text-lg sm:text-2xl font-bold text-card-foreground font-sans mb-2 sm:mb-3 group-hover:text-primary transition-colors max-w-full">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-slate-300 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5 sm:mb-6">
                     {service.description}
                   </p>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-2.5 pt-4 border-t border-slate-800/80 mb-6">
+                  <div className="space-y-2.5 pt-4 border-t border-border mb-5 sm:mb-6">
                     {service.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                        <Check className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+                      <div key={idx} className="flex items-start gap-2.5 text-[11px] sm:text-xs text-muted-foreground">
+                        <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <span className="min-w-0">{feat}</span>
                       </div>
                     ))}
                   </div>
@@ -79,18 +79,18 @@ export const Services: React.FC = () => {
 
                 {/* Card Footer & Action */}
                 <div className="pt-4 space-y-4">
-                  <div className="text-[11px] text-slate-400 italic bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
-                    <span className="font-semibold text-slate-300">Rekomendasi:</span> {service.recommendedFor}
+                  <div className="text-[11px] text-muted-foreground italic bg-muted p-2.5 rounded-xl border border-border">
+                    <span className="font-semibold text-foreground">Rekomendasi:</span> {service.recommendedFor}
                   </div>
 
                   <a
                     href={getWhatsAppLink(`Halo NEXADIGITAL, saya berminat dengan layanan ${service.title}. Mohon info harga & prosedurnya.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl bg-slate-800 hover:bg-sky-500 text-slate-200 hover:text-slate-950 font-semibold text-xs transition-all duration-200 flex items-center justify-center gap-2 group/btn"
+                    className="w-full min-h-[48px] py-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground font-semibold text-xs transition-all duration-200 flex items-center justify-center gap-2 group/btn"
                   >
                     <span>{service.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 shrink-0 group/btn:translate-x-1 transition-transform" />
                   </a>
                 </div>
 

@@ -39,41 +39,41 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-16 bg-slate-950 border-b border-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-14 sm:py-16 bg-background border-b border-border">
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
         
         {/* Top Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-xs font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 border border-sky-500/20 px-3 py-1 rounded-full">
+        <div className="text-center max-w-2xl mx-auto mb-9 sm:mb-12">
+          <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
             TRUST & SOCIAL PROOF
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-3 font-grotesk">
-            Solusi Digital Tepercaya untuk Membantu Bisnis Berkembang
+          <h2 className="text-xl sm:text-3xl font-extrabold text-foreground mt-3 font-sans leading-tight max-w-full">
+            Solusi Digital Terpercaya untuk Membantu Bisnis Berkembang
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 mt-2">
+          <p className="text-xs sm:text-base text-muted-foreground mt-2">
             Dipercaya oleh puluhan brand ternama, bisnis nasional, dan perusahaan berkembang di Indonesia.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
               <div 
                 key={idx}
-                className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-sky-500/40 transition-all duration-300 hover:-translate-y-1 group"
+                className="p-5 sm:p-6 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 hover:-translate-y-1 group shadow-theme max-w-full"
               >
-                <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground mb-4 group-hover:scale-110 transition-transform">
                   <Icon className="w-5 h-5" />
                 </div>
-                <div className="text-3xl sm:text-4xl font-black text-white font-grotesk tracking-tight">
+                <div className="text-2xl sm:text-4xl font-black text-card-foreground font-sans tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-sm font-semibold text-slate-200 mt-1">
+                <div className="text-sm font-semibold text-foreground mt-1">
                   {stat.label}
                 </div>
-                <div className="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                <div className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
                   {stat.subtext}
                 </div>
               </div>
@@ -82,13 +82,13 @@ export const TrustSection: React.FC = () => {
         </div>
 
         {/* Client Brand Badges */}
-        <div className="mt-14 pt-8 border-t border-slate-900/80">
-          <p className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500 mb-6">
+        <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-border">
+          <p className="text-center text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-5 sm:mb-6 px-4">
             DILETAK KAN DI PORTFOLIO UNGGULAN KLIEN KAMI
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-70">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 sm:gap-8 lg:gap-12 gap-y-3 opacity-80">
             {clientLogos.map((client, i) => (
-              <span key={i} className="text-sm sm:text-base font-bold text-slate-400 hover:text-sky-300 transition-colors tracking-wide font-grotesk">
+              <span key={i} className="text-xs sm:text-base font-bold text-muted-foreground hover:text-foreground transition-colors tracking-wide font-sans">
                 {client}
               </span>
             ))}
