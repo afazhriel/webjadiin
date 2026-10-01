@@ -198,7 +198,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
     if (onPrimaryClick) {
       onPrimaryClick();
     } else {
-      window.open(getWhatsAppLink("Halo NEXADIGITAL, saya ingin mulai konsultasi untuk pembuatan website bisnis."), "_blank");
+      window.open(getWhatsAppLink("Halo Hafi Digital, saya ingin mulai konsultasi untuk pembuatan website bisnis."), "_blank");
     }
   };
 
@@ -378,9 +378,9 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
                       <div className="pt-8 pb-3 border-b border-slate-800 flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 min-w-0">
                           <div className="w-7 h-7 flex-shrink-0 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-xs">
-                            N
+                            {BRAND_CONFIG.monogram}
                           </div>
-                          <span className="text-xs font-bold text-slate-200 tracking-wider truncate">NEXADIGITAL</span>
+                          <span className="text-xs font-bold text-slate-200 tracking-wider truncate">{BRAND_CONFIG.nameUpper}</span>
                         </div>
                         <span className="flex-shrink-0 text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                           LIVE

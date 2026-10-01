@@ -52,7 +52,7 @@ export const FinalCTA: React.FC = () => {
           {/* Action CTAs */}
           <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
             <a
-              href={getWhatsAppLink("Halo NEXADIGITAL, saya siap mulai konsultasi untuk pembuatan website bisnis.")}
+              href={getWhatsAppLink("Halo Hafi Digital, saya siap mulai konsultasi untuk pembuatan website bisnis.")}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto min-h-[52px] px-6 sm:px-8 py-4 rounded-xl bg-sky-400 hover:bg-sky-300 text-slate-950 font-black text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 shadow-xl shadow-sky-500/30 transition-all active:scale-95"

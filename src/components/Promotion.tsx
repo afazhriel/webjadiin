@@ -91,7 +91,7 @@ export const Promotion: React.FC = () => {
               {/* Action Buttons */}
               <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
-                  href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin klaim Promo Spesial Oktober 2026 dan mengambil slot diskon.")}
+                  href={getWhatsAppLink("Halo Hafi Digital, saya ingin klaim Promo Spesial Oktober 2026 dan mengambil slot diskon.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-4 rounded-xl bg-primary hover:opacity-90 text-primary-foreground font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-theme transition-all hover:scale-105 active:scale-95"

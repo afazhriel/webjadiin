@@ -80,12 +80,12 @@ export const Problems: React.FC = () => {
               Jangan Biarkan Kompetitor Mengambil Pelanggan Anda
             </h4>
             <p className="text-xs sm:text-sm text-muted-foreground">
-              Ubah masalah di atas menjadi peluang emas dengan website baru berstandar tinggi dari NEXADIGITAL.
+              Ubah masalah di atas menjadi peluang emas dengan website baru berstandar tinggi dari Hafi Digital.
             </p>
           </div>
 
           <a
-            href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin mengatasi masalah website bisnis saya dan konsultasi gratis.")}
+            href={getWhatsAppLink("Halo Hafi Digital, saya ingin mengatasi masalah website bisnis saya dan konsultasi gratis.")}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto min-h-[48px] px-5 sm:px-6 py-3.5 rounded-xl bg-primary hover:opacity-90 text-primary-foreground font-bold text-sm flex items-center justify-center gap-2 shrink-0 transition-all active:scale-95 shadow-theme"

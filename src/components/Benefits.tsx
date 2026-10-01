@@ -51,7 +51,7 @@ export const Benefits: React.FC = () => {
             KEUNGGULAN UTAMA
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
-            Kenapa Memilih Layanan NEXADIGITAL?
+            Kenapa Memilih Layanan Hafi Digital?
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             6 alasan utama mengapa pemilik bisnis mempercayakan pengerjaan website profesional kepada tim kami.

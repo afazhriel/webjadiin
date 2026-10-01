@@ -88,7 +88,7 @@ export const Comparison: React.FC = () => {
                 <td className="p-5 text-left text-xs text-muted-foreground font-medium">Siap untuk memulai?</td>
                 <td className="p-4">
                   <a
-                    href={getWhatsAppLink("Halo NEXADIGITAL, saya berminat pesan paket Starter.")}
+                    href={getWhatsAppLink("Halo Hafi Digital, saya berminat pesan paket Starter.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -98,7 +98,7 @@ export const Comparison: React.FC = () => {
                 </td>
                 <td className="p-4 bg-accent/40 border-x border-border">
                   <a
-                    href={getWhatsAppLink("Halo NEXADIGITAL, saya berminat pesan paket Professional.")}
+                    href={getWhatsAppLink("Halo Hafi Digital, saya berminat pesan paket Professional.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-theme hover:opacity-90 transition-all"
@@ -108,7 +108,7 @@ export const Comparison: React.FC = () => {
                 </td>
                 <td className="p-4">
                   <a
-                    href={getWhatsAppLink("Halo NEXADIGITAL, saya berminat pesan paket Business.")}
+                    href={getWhatsAppLink("Halo Hafi Digital, saya berminat pesan paket Business.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center min-h-[44px] px-4 py-2 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -140,7 +140,7 @@ export const Comparison: React.FC = () => {
                 ))}
               </div>
               <a
-                href={getWhatsAppLink(`Halo NEXADIGITAL, saya berminat dengan paket ${card.name}.`)}
+                href={getWhatsAppLink(`Halo Hafi Digital, saya berminat dengan paket ${card.name}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full min-h-[48px] py-3 rounded-xl font-bold text-xs text-center flex items-center justify-center ${card.popular ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'}`}

@@ -30,7 +30,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     ],
     ctaText: "Pilih Paket Starter",
     supportInfo: "Dukungan via Email & Chat WhatsApp",
-    whatsappMessage: "Halo NEXADIGITAL, saya tertarik dengan paket STARTER (Rp 1.999.000). Mohon informasi selengkapnya."
+    whatsappMessage: "Halo Hafi Digital, saya tertarik dengan paket STARTER (Rp 1.999.000). Mohon informasi selengkapnya."
   },
   {
     id: "professional",
@@ -53,7 +53,7 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     ],
     ctaText: "Pilih Paket Professional",
     supportInfo: "Dukungan Prioritas 24/7 via WhatsApp Dedicated",
-    whatsappMessage: "Halo NEXADIGITAL, saya tertarik dengan paket PROFESSIONAL (Rp 3.999.000). Saya ingin berkonsultasi mengenai paket ini."
+    whatsappMessage: "Halo Hafi Digital, saya tertarik dengan paket PROFESSIONAL (Rp 3.999.000). Saya ingin berkonsultasi mengenai paket ini."
   },
   {
     id: "business",
@@ -75,6 +75,6 @@ export const PRICING_PACKAGES: PricingPackage[] = [
     ],
     ctaText: "Pilih Paket Business",
     supportInfo: "Dedicated Account Manager & Technical Team",
-    whatsappMessage: "Halo NEXADIGITAL, saya sangat tertarik dengan paket BUSINESS (Rp 7.999.000). Mohon bantu jadwalkan diskusi teknis."
+    whatsappMessage: "Halo Hafi Digital, saya sangat tertarik dengan paket BUSINESS (Rp 7.999.000). Mohon bantu jadwalkan diskusi teknis."
   }
 ];

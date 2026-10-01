@@ -1,11 +1,14 @@
-export const WHATSAPP_NUMBER = "6281234567890";
+export const WHATSAPP_NUMBER = "6288226173208";
 
 export const BRAND_CONFIG = {
-  name: "NEXADIGITAL",
+  name: "Hafi Digital",
+  nameUpper: "HAFI DIGITAL",
+  monogram: "H",
   tagline: "Digital Presence, Redefined",
   description: "Bantu bisnis Anda tampil 10x lebih profesional dengan website modern, ultra-fast, dan high-converting.",
+  website: "https://hafi.digital",
   email: "halo@nexadigital.co.id",
-  phone: "+62 812-3456-7890",
+  phone: "+62 882-2617-3208",
   address: "Grand Slipi Tower 18th Fl, Jl. S. Parman, Jakarta Barat",
   socials: {
     instagram: "https://instagram.com/nexadigital.id",

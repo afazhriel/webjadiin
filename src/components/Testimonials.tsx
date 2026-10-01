@@ -20,7 +20,7 @@ export const Testimonials: React.FC = () => {
             Ulasan Jujur Dari Klien Kemitraan Kami
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-            Dengar langsung kesan para pemimpin bisnis setelah mempercayakan transformasi website kepada NEXADIGITAL.
+            Dengar langsung kesan para pemimpin bisnis setelah mempercayakan transformasi website kepada Hafi Digital.
           </p>
         </div>
 

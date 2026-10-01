@@ -78,7 +78,7 @@ export const FAQ: React.FC = () => {
             <p className="text-xs text-slate-400">Tim kami siap menjawab pertanyaan teknis Anda 24/7 via WhatsApp.</p>
           </div>
           <a
-            href={getWhatsAppLink("Halo NEXADIGITAL, saya punya pertanyaan mengenai pengerjaan website.")}
+            href={getWhatsAppLink("Halo Hafi Digital, saya punya pertanyaan mengenai pengerjaan website.")}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto min-h-[48px] px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shrink-0 transition-all"

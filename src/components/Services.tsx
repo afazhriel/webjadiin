@@ -84,7 +84,7 @@ export const Services: React.FC = () => {
                   </div>
 
                   <a
-                    href={getWhatsAppLink(`Halo NEXADIGITAL, saya berminat dengan layanan ${service.title}. Mohon info harga & prosedurnya.`)}
+                    href={getWhatsAppLink(`Halo Hafi Digital, saya berminat dengan layanan ${service.title}. Mohon info harga & prosedurnya.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full min-h-[48px] py-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground font-semibold text-xs transition-all duration-200 flex items-center justify-center gap-2 group/btn"

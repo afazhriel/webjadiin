@@ -101,7 +101,7 @@ export const Portfolio: React.FC = () => {
               {/* Card Bottom CTA Action */}
               <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-2">
                 <a
-                  href={getWhatsAppLink(`Halo NEXADIGITAL, saya sangat suka desain seperti project portfolio ${item.title}. Bisa buatkan konsep seperti ini?`)}
+                  href={getWhatsAppLink(`Halo Hafi Digital, saya sangat suka desain seperti project portfolio ${item.title}. Bisa buatkan konsep seperti ini?`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full min-h-[44px] py-2.5 rounded-xl bg-slate-900 hover:bg-sky-500 text-slate-300 hover:text-slate-950 font-semibold text-xs transition-all flex items-center justify-center gap-2 border border-slate-800 hover:border-sky-400"

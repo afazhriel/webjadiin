@@ -122,7 +122,7 @@ export const Pricing: React.FC = () => {
         {/* Custom Project Note */}
         <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-card p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
           Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-primary font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
-          <a href={getWhatsAppLink("Halo NEXADIGITAL, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-primary underline font-semibold hover:opacity-80">
+          <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-primary underline font-semibold hover:opacity-80">
             Hubungi Tim Teknis
           </a>
         </div>

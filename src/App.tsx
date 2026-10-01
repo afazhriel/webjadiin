@@ -1,4 +1,5 @@
 import React from 'react';
+import { BRAND_CONFIG } from '@/data/config';
 import { CinematicHero } from '@/components/ui/cinematic-landing-hero';
 import { Navbar } from '@/components/Navbar';
 import { TrustSection } from '@/components/TrustSection';
@@ -25,7 +26,7 @@ export default function App() {
 
       {/* 1. CINEMATIC HERO (Main Opening Section) */}
       <CinematicHero
-        brandName="NEXADIGITAL"
+        brandName={BRAND_CONFIG.nameUpper}
         tagline1="Bangun bisnis Anda,"
         tagline2="lebih profesional."
         cardHeading="Digital presence, redefined."

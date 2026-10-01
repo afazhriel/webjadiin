@@ -13,11 +13,11 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "faq-2",
     question: "Apakah saya harus menyiapkan domain dan hosting sendiri?",
-    answer: "Tidak perlu! Semua paket layanan NEXADIGITAL sudah mencakup GRATIS Domain (.com / .id) serta Cloud Hosting ultra-cepat selama 1 tahun pertama."
+    answer: "Tidak perlu! Semua paket layanan Hafi Digital sudah mencakup GRATIS Domain (.com / .id) serta Cloud Hosting ultra-cepat selama 1 tahun pertama."
   },
   {
     id: "faq-3",
-    question: "Apakah website buatan NEXADIGITAL mudah diakses via handphone?",
+    question: "Apakah website buatan Hafi Digital mudah diakses via handphone?",
     answer: "Sangat responsif! Kami mendesain website dengan pendekatan Mobile-First. Website Anda akan tampil sempurna, cepat, dan rapi di layar smartphone, tablet, laptop, hingga monitor 4K."
   },
   {
@@ -32,7 +32,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: "faq-6",
-    question: "Bagaimana sistem pembayaran pembuatan website di NEXADIGITAL?",
+    question: "Bagaimana sistem pembayaran pembuatan website di Hafi Digital?",
     answer: "Sistem pembayaran sangat fleksibel dan aman. Pembayaran dilakukan dengan Down Payment (DP) 50% di awal saat persetujuan proposal, dan pelunasan 50% setelah website selesai diuji coba & siap diluncurkan."
   }
 ];

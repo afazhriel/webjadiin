@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <a href="#" className="flex items-center gap-2 group min-w-0 min-h-[44px]">
               <div className="w-8 h-8 shrink-0 rounded-xl bg-sky-500 flex items-center justify-center text-slate-950 font-black text-base shadow-md">
-                N
+                {BRAND_CONFIG.monogram}
               </div>
               <span className="text-lg sm:text-xl font-extrabold text-white font-grotesk tracking-tight truncate">
                 {BRAND_CONFIG.name}
@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="pt-1">
                 <a
-                  href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin pesan website.")}
+                  href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[44px] items-center justify-center gap-2 w-full sm:w-auto px-3.5 py-2 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 font-semibold text-xs hover:bg-sky-500/20 transition-colors"

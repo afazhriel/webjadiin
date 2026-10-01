@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
         {/* Brand Logo */}
         <a href="#" onClick={closeMenu} className="flex items-center gap-2 sm:gap-2.5 group min-w-0 min-h-[44px] flex-shrink-0">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary flex-shrink-0 flex items-center justify-center text-primary-foreground font-black text-base sm:text-lg shadow-md group-hover:scale-105 transition-transform">
-            N
+            {BRAND_CONFIG.monogram}
           </div>
           <span className="text-base sm:text-lg lg:text-xl font-extrabold tracking-tight text-foreground font-sans truncate">
             {BRAND_CONFIG.name}
@@ -88,7 +88,7 @@ export const Navbar: React.FC = () => {
         {/* Desktop CTA Action */}
         <div className="hidden md:flex items-center gap-3 lg:gap-4 flex-shrink-0">
           <a
-            href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin bertanya mengenai jasa pembuatan website.")}
+            href={getWhatsAppLink("Halo Hafi Digital, saya ingin bertanya mengenai jasa pembuatan website.")}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center justify-center min-h-[44px] gap-2 px-4 py-2.5 rounded-xl bg-accent text-accent-foreground border border-border text-xs font-semibold transition-all hover:scale-105"
@@ -98,7 +98,7 @@ export const Navbar: React.FC = () => {
           </a>
 
           <a
-            href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin pesan website untuk bisnis saya.")}
+            href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website untuk bisnis saya.")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-theme hover:opacity-90 transition-all active:scale-95"
@@ -141,7 +141,7 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-4 mt-1 flex flex-col gap-3">
             <a
-              href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin pesan website.")}
+              href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
             </a>
 
             <a
-              href={getWhatsAppLink("Halo NEXADIGITAL, saya ingin bertanya mengenai jasa pembuatan website.")}
+              href={getWhatsAppLink("Halo Hafi Digital, saya ingin bertanya mengenai jasa pembuatan website.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
