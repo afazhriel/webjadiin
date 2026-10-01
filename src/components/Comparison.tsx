@@ -30,7 +30,7 @@ export const Comparison: React.FC = () => {
     if (typeof val === 'boolean') {
       return val ? (
         <div className="flex justify-center">
-          <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isPopular ? 'bg-primary text-primary-foreground' : 'bg-muted text-primary'}`}>
+          <div className={`w-6 h-6 rounded-full flex items-center justify-center ${isPopular ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground'}`}>
             <Check className="w-4 h-4 stroke-[3]" />
           </div>
         </div>
@@ -40,7 +40,7 @@ export const Comparison: React.FC = () => {
         </div>
       );
     }
-    return <span className={`text-xs font-semibold ${isPopular ? 'text-primary' : 'text-card-foreground'}`}>{val}</span>;
+    return <span className={`text-xs font-semibold ${isPopular ? 'text-accent-foreground' : 'text-card-foreground'}`}>{val}</span>;
   };
 
   return (
@@ -67,7 +67,7 @@ export const Comparison: React.FC = () => {
               <tr className="border-b border-border bg-muted/50">
                 <th className="p-5 text-left text-sm font-bold text-card-foreground uppercase tracking-wider w-2/5">Fitur & Layanan</th>
                 <th className="p-5 text-sm font-bold text-card-foreground w-1/5">STARTER</th>
-                <th className="p-5 text-sm font-black text-primary bg-accent/40 border-x border-border w-1/5">
+                <th className="p-5 text-sm font-black text-accent-foreground bg-accent/40 border-x border-border w-1/5">
                   PROFESSIONAL ★
                 </th>
                 <th className="p-5 text-sm font-bold text-card-foreground w-1/5">BUSINESS</th>
@@ -128,13 +128,13 @@ export const Comparison: React.FC = () => {
             { name: "PROFESSIONAL (Populer)", price: "Rp 3.999.000", popular: true, features: comparisonMatrix.filter(m => m.professional !== false).map(m => `${m.feature}: ${typeof m.professional === 'string' ? m.professional : 'Termasuk'}`) },
             { name: "BUSINESS", price: "Rp 7.999.000", features: comparisonMatrix.filter(m => m.business !== false).map(m => `${m.feature}: ${typeof m.business === 'string' ? m.business : 'Termasuk'}`) }
           ].map((card, i) => (
-            <div key={i} className={`p-5 sm:p-6 rounded-xl max-w-full ${card.popular ? 'bg-accent/40 border-2 border-primary' : 'bg-card border border-border'}`}>
+            <div key={i} className={`p-5 sm:p-6 rounded-xl max-w-full card-surface transition-all duration-300 ${card.popular ? 'bg-secondary border-2 border-primary' : 'bg-card border border-border hover:border-ring hover:-translate-y-1'}`}>
               <h3 className="text-lg font-bold text-card-foreground font-sans">{card.name}</h3>
-              <p className="text-xl font-extrabold text-primary mt-1 mb-4">{card.price}</p>
+              <p className="text-xl font-extrabold text-foreground mt-1 mb-4">{card.price}</p>
               <div className="space-y-2 mb-6">
                 {card.features.map((f, j) => (
                   <div key={j} className="text-xs text-muted-foreground flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                    <Check className="w-3.5 h-3.5 text-accent-foreground shrink-0 mt-0.5" />
                     <span className="min-w-0">{f}</span>
                   </div>
                 ))}

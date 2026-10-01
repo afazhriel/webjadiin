@@ -48,7 +48,7 @@ export const Promotion: React.FC = () => {
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div className="relative max-w-full rounded-xl bg-accent/30 border-2 border-border p-5 sm:p-12 lg:p-16 shadow-theme overflow-hidden">
+        <div className="relative max-w-full rounded-xl bg-gradient-to-br from-primary/25 via-accent to-accent/70 border-2 border-ring p-5 sm:p-12 lg:p-16 shadow-theme overflow-hidden card-surface">
           
           {/* Top Promo Tag */}
           <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-border">
@@ -58,7 +58,7 @@ export const Promotion: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-accent-foreground">
-              <Gift className="w-4 h-4 shrink-0 text-primary" />
+              <Gift className="w-4 h-4 shrink-0 text-primary-foreground" />
               <span>Sisa Kuota: Terbatas 7 Slot Bulan Ini</span>
             </div>
           </div>
@@ -77,12 +77,12 @@ export const Promotion: React.FC = () => {
 
               {/* Bonus List */}
               <div className="space-y-2.5 pt-2">
-                <div className="text-[11px] sm:text-xs font-bold text-primary uppercase tracking-wider">
+                <div className="text-[11px] sm:text-xs font-bold text-accent-foreground uppercase tracking-wider">
                   BONUS GRATIS TERMASUK:
                 </div>
                 {promoBonus.map((bonus, i) => (
                   <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground">
-                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-primary" />
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-primary-foreground" />
                     <span className="min-w-0">{bonus}</span>
                   </div>
                 ))}
@@ -120,8 +120,8 @@ export const Promotion: React.FC = () => {
                     { label: "Menit", value: timeLeft.minutes },
                     { label: "Detik", value: timeLeft.seconds }
                   ].map((item, idx) => (
-                    <div key={idx} className="p-2 sm:p-4 rounded-xl bg-muted border border-border flex flex-col items-center justify-center min-w-0">
-                      <span className="text-xl sm:text-3xl font-black text-primary font-sans tabular-nums">
+                    <div key={idx} className="p-2 sm:p-4 rounded-xl bg-secondary border border-border flex flex-col items-center justify-center min-w-0">
+                      <span className="text-xl sm:text-3xl font-black text-card-foreground font-sans tabular-nums">
                         {String(item.value).padStart(2, '0')}
                       </span>
                       <span className="text-[9px] sm:text-[10px] text-muted-foreground font-semibold uppercase mt-1 truncate max-w-full">

@@ -54,7 +54,7 @@ export const InfiniteGallerySection: React.FC = () => {
         {/* Subtle UX Interaction Indicator */}
         <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none w-full max-w-full px-4 flex justify-center">
           <div className="flex items-center gap-2 sm:gap-3 max-w-full px-3 sm:px-4 py-2 rounded-full bg-card/90 backdrop-blur-md border border-border text-[10px] sm:text-xs text-muted-foreground shadow-theme text-center">
-            <MoveVertical className="w-3.5 h-3.5 shrink-0 text-primary animate-bounce" />
+            <MoveVertical className="w-3.5 h-3.5 shrink-0 text-accent-foreground animate-bounce" />
             <span>Scroll mouse atau geser layar untuk menjelajah</span>
           </div>
         </div>

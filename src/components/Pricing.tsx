@@ -33,10 +33,10 @@ export const Pricing: React.FC = () => {
             return (
               <div
                 key={pkg.id}
-                className={`relative rounded-xl p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 max-w-full ${
+                className={`relative rounded-xl p-5 sm:p-6 lg:p-7 flex flex-col justify-between transition-all duration-300 card-surface max-w-full ${
                   isPopular
-                    ? 'bg-accent/40 border-2 border-primary shadow-theme lg:-translate-y-3 z-20'
-                    : 'bg-card border border-border hover:border-ring'
+                    ? 'bg-secondary border-2 border-primary shadow-theme lg:-translate-y-3 z-20'
+                    : 'bg-card border border-border hover:border-ring hover:-translate-y-1'
                 }`}
               >
                 {/* Popular Badge */}
@@ -58,8 +58,11 @@ export const Pricing: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Pricing Tag */}
-                  <div className="mb-6 sm:mb-8 p-3 sm:p-4 rounded-xl bg-card border border-border">
+                  {/* Pricing Tag — inner surface tier differs per plan so the
+                      featured card keeps a readable inset panel */}
+                  <div className={`mb-6 sm:mb-8 p-3 sm:p-4 rounded-xl border ${
+                    isPopular ? 'bg-card border-border' : 'bg-muted/60 border-border'
+                  }`}>
                     <div className="text-xs font-semibold text-destructive line-through">
                       {pkg.originalPrice}
                     </div>
@@ -82,7 +85,7 @@ export const Pricing: React.FC = () => {
                     {pkg.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-card-foreground">
                         <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                          isPopular ? 'bg-primary text-primary-foreground' : 'bg-muted text-primary'
+                          isPopular ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground'
                         }`}>
                           <Check className="w-3 h-3 stroke-[3]" />
                         </div>
@@ -120,9 +123,9 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* Custom Project Note */}
-        <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-card p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
-          Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-primary font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
-          <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-primary underline font-semibold hover:opacity-80">
+        <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-secondary p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
+          Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-accent-foreground font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
+          <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-accent-foreground underline font-semibold hover:opacity-80">
             Hubungi Tim Teknis
           </a>
         </div>

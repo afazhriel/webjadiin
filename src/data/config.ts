@@ -1,5 +1,23 @@
 export const WHATSAPP_NUMBER = "6288226173208";
 
+/**
+ * Official registered address of Hafi Digital.
+ * Single source of truth for the Footer contact card and the
+ * Organization JSON-LD structured data in index.html.
+ */
+export const BRAND_ADDRESS = {
+  streetAddress: "Griya Kelapa Gading, Desa Tanimulya",
+  addressLocality: "Bandung Barat",
+  postalCode: "40552"
+} as const;
+
+/** Stacked form used inside contact cards so nothing gets truncated. */
+export const BRAND_ADDRESS_LINES: string[] = [
+  BRAND_ADDRESS.streetAddress,
+  "Kabupaten Bandung Barat",
+  BRAND_ADDRESS.postalCode
+];
+
 export const BRAND_CONFIG = {
   name: "Hafi Digital",
   nameUpper: "HAFI DIGITAL",
@@ -9,7 +27,9 @@ export const BRAND_CONFIG = {
   website: "https://hafi.digital",
   email: "halo@nexadigital.co.id",
   phone: "+62 882-2617-3208",
-  address: "Grand Slipi Tower 18th Fl, Jl. S. Parman, Jakarta Barat",
+  address: `${BRAND_ADDRESS.streetAddress}, Kabupaten Bandung Barat ${BRAND_ADDRESS.postalCode}`,
+  addressLines: BRAND_ADDRESS_LINES,
+  addressDetail: BRAND_ADDRESS,
   socials: {
     instagram: "https://instagram.com/nexadigital.id",
     linkedin: "https://linkedin.com/company/nexadigital",

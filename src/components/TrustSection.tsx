@@ -13,7 +13,8 @@ export const TrustSection: React.FC = () => {
       value: "98.9%",
       label: "Tingkat Kepuasan Klien",
       subtext: "Berdasarkan ulasan positif dan garansi kepuasan",
-      icon: Star
+      icon: Star,
+      featured: true
     },
     {
       value: "5+ Thn",
@@ -59,12 +60,20 @@ export const TrustSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
+            const isFeatured = stat.featured === true;
             return (
               <div 
                 key={idx}
-                className="p-5 sm:p-6 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 hover:-translate-y-1 group shadow-theme max-w-full"
+                className={`p-5 sm:p-6 rounded-xl border hover:border-ring transition-all duration-300 hover:-translate-y-1 group card-surface max-w-full ${
+                  isFeatured ? 'bg-secondary border-border' : 'bg-card border-border'
+                }`}
               >
-                <div className="w-10 h-10 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground mb-4 group-hover:scale-110 transition-transform">
+                {/* Icon container tiers: important = primary, normal = secondary */}
+                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
+                  isFeatured
+                    ? 'bg-primary text-primary-foreground border-transparent'
+                    : 'bg-secondary text-secondary-foreground border-border group-hover:bg-accent group-hover:text-accent-foreground'
+                }`}>
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="text-2xl sm:text-4xl font-black text-card-foreground font-sans tracking-tight">

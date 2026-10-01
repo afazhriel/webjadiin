@@ -50,12 +50,13 @@ export const Problems: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="p-5 sm:p-8 rounded-xl bg-card border border-border hover:border-destructive/40 transition-all duration-300 relative overflow-hidden group shadow-theme max-w-full"
+                className="p-5 sm:p-6 lg:p-7 rounded-xl bg-card border border-border hover:border-destructive/40 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group card-surface max-w-full"
               >
                 {/* Accent Highlight */}
                 <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-destructive/5 rounded-bl-full pointer-events-none group-hover:bg-destructive/10 transition-colors" />
 
                 <div className="flex items-start gap-4 sm:gap-5">
+                  {/* Icon container — problem semantics keep the destructive tier */}
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 group-hover:scale-110 transition-transform">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
@@ -74,9 +75,9 @@ export const Problems: React.FC = () => {
         </div>
 
         {/* Bottom Solution Transition Banner */}
-        <div className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-xl bg-accent border border-border text-center flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 shadow-theme">
+        <div className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-xl bg-secondary border border-border text-center flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-6 shadow-theme">
           <div className="text-left space-y-1 w-full sm:w-auto">
-            <h4 className="text-lg sm:text-xl font-bold text-accent-foreground font-sans max-w-full">
+            <h4 className="text-lg sm:text-xl font-bold text-foreground font-sans max-w-full">
               Jangan Biarkan Kompetitor Mengambil Pelanggan Anda
             </h4>
             <p className="text-xs sm:text-sm text-muted-foreground">

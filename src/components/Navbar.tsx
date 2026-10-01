@@ -111,7 +111,7 @@ export const Navbar: React.FC = () => {
         {/* Mobile Hamburger Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden shrink-0 w-11 h-11 -mr-2 rounded-xl bg-card border border-border text-card-foreground hover:text-primary flex items-center justify-center transition-colors"
+          className="md:hidden shrink-0 w-11 h-11 -mr-2 rounded-xl bg-card border border-border text-card-foreground hover:text-accent-foreground hover:border-ring flex items-center justify-center transition-colors"
           aria-label={isMobileMenuOpen ? 'Tutup menu' : 'Buka menu'}
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-navigation"

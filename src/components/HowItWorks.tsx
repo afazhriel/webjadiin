@@ -57,18 +57,18 @@ export const HowItWorks: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="relative z-10 p-6 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group shadow-theme max-w-full"
+                className="relative z-10 p-5 sm:p-6 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center group card-surface max-w-full"
               >
-                {/* Step Number Circle */}
-                <div className="w-16 h-16 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground font-extrabold text-xl mb-6 group-hover:scale-110 transition-transform">
+                {/* Step Icon — sequential steps share the neutral tier on purpose */}
+                <div className="w-16 h-16 rounded-xl bg-secondary border border-border flex items-center justify-center text-secondary-foreground font-extrabold text-xl mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-colors group-hover:scale-110 transition-transform">
                   <Icon className="w-7 h-7" />
                 </div>
 
-                <span className="text-xs font-bold text-primary tracking-wider uppercase mb-1 font-sans">
+                <span className="text-xs font-bold text-accent-foreground tracking-wider uppercase mb-1 font-sans">
                   LANGKAH {step.number}
                 </span>
 
-                <h3 className="text-lg font-bold text-card-foreground font-sans mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-bold text-card-foreground font-sans mb-2 group-hover:text-accent-foreground transition-colors">
                   {step.title}
                 </h3>
 
@@ -87,13 +87,13 @@ export const HowItWorks: React.FC = () => {
             return (
               <div key={idx} className="relative pl-3 sm:pl-4 group">
                 {/* Node Bullet */}
-                <div className="absolute -left-[30px] sm:-left-[35px] top-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-card border-2 border-primary flex items-center justify-center text-primary text-[11px] sm:text-xs font-bold">
+                <div className="absolute -left-[30px] sm:-left-[35px] top-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-card border-2 border-ring flex items-center justify-center text-accent-foreground text-[11px] sm:text-xs font-bold">
                   {step.number}
                 </div>
 
-                <div className="p-4 sm:p-6 rounded-xl bg-card border border-border max-w-full">
+                <div className="p-4 sm:p-6 rounded-xl bg-card border border-border card-surface max-w-full">
                   <div className="flex items-center gap-3 mb-2">
-                    <Icon className="w-5 h-5 shrink-0 text-primary" />
+                    <Icon className="w-5 h-5 shrink-0 text-accent-foreground" />
                     <h3 className="text-base font-bold text-card-foreground font-sans min-w-0">{step.title}</h3>
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>

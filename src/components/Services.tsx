@@ -37,29 +37,44 @@ export const Services: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {SERVICES.map((service: ServiceItem) => {
             const IconComponent = iconMap[service.icon] || Building2;
-            
+            // Featured service gets a tinted surface + primary icon/badge so the
+            // hierarchy is readable without turning every card blue.
+            const isFeatured = service.badge === 'Most Popular';
+
             return (
               <div
                 key={service.id}
-                className="group relative rounded-xl bg-card border border-border hover:border-ring p-5 sm:p-8 flex flex-col justify-between transition-all duration-300 sm:hover:-translate-y-2 shadow-theme max-w-full"
+                className={`group relative rounded-xl border p-5 sm:p-6 lg:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-ring card-surface max-w-full ${
+                  isFeatured
+                    ? 'bg-secondary border-border'
+                    : 'bg-card border-border'
+                }`}
               >
                 {/* Top Badge if any */}
                 {service.badge && (
                   <div className="absolute top-5 right-5 sm:top-6 sm:right-6 max-w-[55%]">
-                    <span className="block text-[10px] sm:text-[11px] font-bold text-accent-foreground bg-accent border border-border px-2.5 sm:px-3 py-1 rounded-full truncate">
+                    <span className={`block text-[10px] sm:text-[11px] font-bold border px-2.5 sm:px-3 py-1 rounded-full truncate ${
+                      isFeatured
+                        ? 'bg-primary text-primary-foreground border-transparent'
+                        : 'bg-accent text-accent-foreground border-border'
+                    }`}>
                       {service.badge}
                     </span>
                   </div>
                 )}
 
                 <div>
-                  {/* Service Icon */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground mb-5 sm:mb-6 group-hover:scale-110 transition-transform">
+                  {/* Service Icon — hierarchy: normal = secondary, featured = primary */}
+                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl border flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 transition-transform ${
+                    isFeatured
+                      ? 'bg-primary text-primary-foreground border-transparent'
+                      : 'bg-secondary text-secondary-foreground border-border group-hover:bg-accent group-hover:text-accent-foreground'
+                  }`}>
                     <IconComponent className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-lg sm:text-2xl font-bold text-card-foreground font-sans mb-2 sm:mb-3 group-hover:text-primary transition-colors max-w-full">
+                  <h3 className="text-lg sm:text-2xl font-bold text-card-foreground font-sans mb-2 sm:mb-3 group-hover:text-accent-foreground transition-colors max-w-full">
                     {service.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5 sm:mb-6">
@@ -70,7 +85,7 @@ export const Services: React.FC = () => {
                   <div className="space-y-2.5 pt-4 border-t border-border mb-5 sm:mb-6">
                     {service.features.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-[11px] sm:text-xs text-muted-foreground">
-                        <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-accent-foreground shrink-0 mt-0.5" />
                         <span className="min-w-0">{feat}</span>
                       </div>
                     ))}
@@ -79,7 +94,7 @@ export const Services: React.FC = () => {
 
                 {/* Card Footer & Action */}
                 <div className="pt-4 space-y-4">
-                  <div className="text-[11px] text-muted-foreground italic bg-muted p-2.5 rounded-xl border border-border">
+                  <div className="text-[11px] text-muted-foreground italic bg-muted/60 p-2.5 rounded-xl border border-border">
                     <span className="font-semibold text-foreground">Rekomendasi:</span> {service.recommendedFor}
                   </div>
 
@@ -87,7 +102,11 @@ export const Services: React.FC = () => {
                     href={getWhatsAppLink(`Halo Hafi Digital, saya berminat dengan layanan ${service.title}. Mohon info harga & prosedurnya.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full min-h-[48px] py-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground font-semibold text-xs transition-all duration-200 flex items-center justify-center gap-2 group/btn"
+                    className={`w-full min-h-[48px] py-3 rounded-xl font-semibold text-xs transition-all duration-200 flex items-center justify-center gap-2 group/btn ${
+                      isFeatured
+                        ? 'bg-primary text-primary-foreground hover:opacity-90'
+                        : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground'
+                    }`}
                   >
                     <span>{service.ctaText}</span>
                     <ArrowRight className="w-4 h-4 shrink-0 group/btn:translate-x-1 transition-transform" />

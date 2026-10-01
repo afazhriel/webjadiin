@@ -62,22 +62,32 @@ export const Benefits: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {benefits.map((benefit, idx) => {
             const Icon = benefit.icon;
+            // First card reads as the featured one; the rest stay on the
+            // neutral surface so the grid never turns into a wall of blue.
+            const isFeatured = idx === 0;
             return (
               <div
                 key={idx}
-                className="group relative p-5 sm:p-8 rounded-xl bg-card border border-border hover:border-ring transition-all duration-300 sm:hover:-translate-y-1.5 flex flex-col justify-between shadow-theme max-w-full"
+                className={`group relative p-5 sm:p-6 lg:p-7 rounded-xl border hover:border-ring transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between card-surface max-w-full ${
+                  isFeatured ? 'bg-secondary border-border' : 'bg-card border-border'
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-5 sm:mb-6">
-                    <span className="text-2xl sm:text-3xl font-black text-primary font-sans">
+                    <span className="text-2xl sm:text-3xl font-black text-foreground font-sans">
                       {benefit.number}
                     </span>
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent border border-border flex items-center justify-center text-accent-foreground group-hover:scale-110 transition-transform">
+                    {/* Icon container tiers: featured = accent, normal = secondary */}
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl border flex items-center justify-center group-hover:scale-110 transition-transform ${
+                      isFeatured
+                        ? 'bg-accent text-accent-foreground border-border group-hover:bg-primary group-hover:text-primary-foreground'
+                        : 'bg-secondary text-secondary-foreground border-border group-hover:bg-accent group-hover:text-accent-foreground'
+                    }`}>
                       <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-card-foreground font-sans mb-2 group-hover:text-primary transition-colors max-w-full">
+                  <h3 className="text-lg sm:text-xl font-bold text-card-foreground font-sans mb-2 group-hover:text-accent-foreground transition-colors max-w-full">
                     {benefit.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
@@ -85,7 +95,7 @@ export const Benefits: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="mt-5 sm:mt-6 pt-4 border-t border-border flex items-center justify-between gap-2 text-xs text-primary font-medium opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+                <div className="mt-5 sm:mt-6 pt-4 border-t border-border flex items-center justify-between gap-2 text-xs text-accent-foreground font-medium opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
                   <span>Standard Kualitas Tinggi</span>
                   <span>✓ Verified</span>
                 </div>

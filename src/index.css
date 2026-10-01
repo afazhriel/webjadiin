@@ -227,6 +227,96 @@
     outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
+
+  /* ============================================================
+     FORM CONTROLS (input / textarea / select)
+     Every control is token-driven — no browser default look,
+     no default blue focus outline, and placeholders never fall
+     back to the UA colour (which also renders disabled-ish).
+     ============================================================ */
+  input,
+  textarea,
+  select {
+    background-color: var(--input);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
+    border-radius: var(--radius);
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input:not([type='checkbox']):not([type='radio']),
+  textarea,
+  select {
+    padding: 0.75rem 1rem;
+  }
+
+  textarea {
+    /* Never a fixed height: content must never be clipped. */
+    display: block;
+    width: 100%;
+    min-height: 6rem;
+    resize: vertical;
+    overflow-y: auto;
+  }
+
+  select {
+    /* Native appearance is kept so the OS dropdown arrow stays visible,
+       while the surface, text and border are fully token-driven. */
+    min-width: 0;
+  }
+
+  select option,
+  select optgroup {
+    background-color: var(--card);
+    color: var(--card-foreground);
+  }
+
+  /* Placeholder: readable, not too bright, not too dark, never disabled-looking. */
+  input::placeholder,
+  textarea::placeholder,
+  select::placeholder {
+    color: var(--muted-foreground);
+    opacity: 1;
+  }
+
+  input:hover:not(:disabled),
+  textarea:hover:not(:disabled),
+  select:hover:not(:disabled) {
+    border-color: var(--ring);
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    background-color: var(--card);
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 35%, transparent);
+  }
+
+  input:focus::placeholder,
+  textarea:focus::placeholder {
+    color: var(--muted-foreground);
+    opacity: 0.75;
+  }
+
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    cursor: not-allowed;
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    accent-color: var(--primary);
+    padding: 0;
+    border-radius: 0.25rem;
+  }
 }
 
 /* ============================================================
@@ -385,6 +475,26 @@
 
 .card-physical-depth {
   box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) rgba(var(--shadow-color), var(--shadow-opacity));
+}
+
+/* ============================================================
+   CARD SURFACE DEPTH
+   Gives every card a real (not flat) elevation and a subtle
+   hover lift. Driven only by the existing --shadow-* tokens, so
+   no new palette is introduced and the radius stays --radius.
+   ============================================================ */
+.card-surface {
+  box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread) rgba(var(--shadow-color), var(--shadow-opacity));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card-surface:hover {
+  box-shadow:
+    var(--shadow-offset-x)
+    calc(var(--shadow-offset-y) * 1.6)
+    calc(var(--shadow-blur) * 1.8)
+    var(--shadow-spread)
+    rgba(var(--shadow-color), calc(var(--shadow-opacity) * 1.35));
 }
 
 /* Perspective utilities */
