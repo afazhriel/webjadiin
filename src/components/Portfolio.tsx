@@ -13,8 +13,11 @@ export const Portfolio: React.FC = () => {
     : PORTFOLIO_ITEMS.filter(item => item.category.includes(selectedCategory) || (selectedCategory === 'Landing Page' && item.category.includes('Sales')));
 
   return (
-    <section id="portfolio" className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-14 sm:py-20 lg:py-24 atm-indigo relative overflow-hidden border-b border-white/[0.06] atm-accent-top">
+      {/* Atmosphere: back to the core indigo, with a cyan bloom top-left. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute -top-24 -left-16 w-[360px] h-[360px] sm:w-[520px] sm:h-[520px] atm-bloom-cyan pointer-events-none" />
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-9 sm:mb-12 space-y-3 sm:space-y-4">

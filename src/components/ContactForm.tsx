@@ -60,8 +60,21 @@ export const ContactForm: React.FC = () => {
   const buttonText = state === 'submitting' ? 'Mengirim...' : state === 'success' ? 'Terkirim' : 'Kirim Pesan';
 
   return (
-    <section id="contact" className="py-14 sm:py-20 lg:py-24 bg-background relative">
-      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-14 sm:py-20 lg:py-24 atm-navy relative overflow-hidden">
+      {/* Atmosphere: deep navy with a cyan bloom behind the form card and a
+          curved light trail on top, so this block flows into FinalCTA. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute -top-24 right-1/4 w-[360px] h-[360px] sm:w-[540px] sm:h-[540px] atm-bloom-cyan pointer-events-none" />
+      <svg
+        className="absolute top-0 left-0 w-full h-20 sm:h-28 pointer-events-none"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="M0 118C300 24 900 24 1200 118" stroke="#0EA5FF" strokeOpacity="0.14" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+      </svg>
+      <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground font-grotesk leading-tight">
             Hubungi Kami

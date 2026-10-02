@@ -11,8 +11,12 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-<section id="faq" className="py-14 sm:py-20 lg:py-24 bg-muted/40 relative border-b border-border">
-      <div className="max-w-4xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+<section id="faq" className="py-14 sm:py-20 lg:py-24 atm-quiet relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: deliberately the calmest block on the page — FAQ is a
+          reading section, so light is soft and centred rather than cornered. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] sm:w-[560px] sm:h-[560px] atm-bloom-cyan opacity-60 pointer-events-none" />
+      <div className="max-w-4xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">

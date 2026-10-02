@@ -18,10 +18,11 @@ export const InfiniteGallerySection: React.FC = () => {
   return (
     <section
       id="gallery"
-      className="relative w-full max-w-full bg-background py-14 sm:py-20 overflow-hidden border-b border-border"
+      className="relative w-full max-w-full atm-teal-deep py-14 sm:py-20 overflow-hidden border-b border-white/[0.06]"
     >
       {/* Background Decorative Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 sm:w-96 sm:h-96 atm-bloom-teal pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

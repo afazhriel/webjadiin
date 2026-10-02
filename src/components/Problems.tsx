@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AlertCircle, UserX, Globe, Layers, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '../data/config';
 
@@ -26,9 +26,22 @@ export const Problems: React.FC = () => {
     }
   ];
 
+  /* Accent per card, drawn from the Hafi Digital palette. Fed to the
+     stylesheet as --card-accent so all four cards share one interaction
+     rule set instead of four duplicated blocks of CSS. */
+  const accents = ['#0EA5FF', '#2563EB', '#6366F1', '#3B82F6'];
+
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+
   return (
-    <section className="py-14 sm:py-20 bg-muted/40 relative border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-20 atm-teal relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: cool teal-cast light, desaturated so this block still
+          reads as the "problem" space without turning murky. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      <div className="absolute top-1/4 -left-24 w-[380px] h-[380px] sm:w-[560px] sm:h-[560px] atm-bloom-teal pointer-events-none" />
+      <div className="absolute -bottom-28 right-0 w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] atm-bloom-cyan opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 atm-vignette pointer-events-none" />
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
@@ -47,29 +60,38 @@ export const Problems: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
           {problems.map((problem, idx) => {
             const Icon = problem.icon;
+            const isActive = activeCard === idx;
             return (
-              <div
+              <button
                 key={idx}
-                className="p-5 sm:p-6 lg:p-7 rounded-xl bg-card border border-border hover:border-destructive/40 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group card-surface max-w-full"
+                type="button"
+                onClick={() => setActiveCard(idx)}
+                aria-pressed={isActive}
+                style={{ '--card-accent': accents[idx] } as React.CSSProperties}
+                data-active={isActive ? 'true' : 'false'}
+                className="problem-card p-5 sm:p-6 lg:p-7 rounded-xl relative overflow-hidden max-w-full"
               >
-                {/* Accent Highlight */}
-                <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 bg-destructive/5 rounded-bl-full pointer-events-none group-hover:bg-destructive/10 transition-colors" />
+                {/* Active indicator: single left accent rail */}
+                <span className="problem-card-rail" aria-hidden="true" />
 
-                <div className="flex items-start gap-4 sm:gap-5">
-                  {/* Icon container — problem semantics keep the destructive tier */}
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive shrink-0 group-hover:scale-110 transition-transform">
+                {/* Accent Highlight */}
+                <span className="problem-card-corner absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 rounded-bl-full pointer-events-none" />
+
+                <span className="flex items-start gap-4 sm:gap-5">
+                  {/* Icon container — driven by the card's own accent */}
+                  <span className="problem-card-icon w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-                  <div className="space-y-2 min-w-0">
-                    <h3 className="text-lg sm:text-xl font-bold text-card-foreground font-sans group-hover:text-destructive transition-colors">
+                  </span>
+                  <span className="block space-y-2 min-w-0">
+                    <h3 className="problem-card-title text-lg sm:text-xl font-bold text-card-foreground font-sans">
                       {problem.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <span className="block text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       {problem.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                    </span>
+                  </span>
+                </span>
+              </button>
             );
           })}
         </div>

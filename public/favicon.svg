@@ -1,4 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="24" fill="#026FC7"/>
-  <path d="M30 30H42V45H58V30H70V70H58V55H42V70H30Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <title>Hafi Digital</title>
+  <!--
+    Browser tab favicon for Hafi Digital - standalone brand mark on a
+    TRANSPARENT canvas. There is deliberately no <rect>, no card, no plate:
+    the earlier navy tile was removed on request, and nothing here draws a
+    background shape of any kind.
+
+    The "H" is NOT redrawn. The three paths are byte-for-byte the geometry of
+    <BrandMark> in src/components/BrandMark.tsx - same 48x48 viewBox, same
+    coordinates, same stroke widths, same round caps:
+
+      M13.25 13.25V34.75  w8.5   left stem  = FOUNDATION
+      M34.75 13.25V34.75  w8.5   right stem = GROWTH
+      M13.25 31.5 34.75 21.5 w7  bridge     = TRANSFORMATION
+
+    Colour: because the canvas is transparent, the tab background is whatever
+    the visitor's browser uses - which we cannot control. Pure white would be
+    invisible on a light tab (1.0:1), so the mark is drawn in the two brand
+    blues instead, chosen so the silhouette survives BOTH themes:
+      #2563EB cobalt stems  -> 5.17:1 on a white tab, 3.84:1 on brand navy
+      #0EA5FF electric blue -> 6.33:1 on a dark tab
+    No new colours are introduced; both already exist in the Hafi palette.
+
+    The bridge is painted FIRST and the stems on top, so the electric blue
+    reads as one clean ascending slash between them instead of notching them.
+  -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M13.25 31.5 34.75 21.5" stroke="#0EA5FF" stroke-width="7" />
+    <path d="M13.25 13.25V34.75" stroke="#2563EB" stroke-width="8.5" />
+    <path d="M34.75 13.25V34.75" stroke="#2563EB" stroke-width="8.5" />
+  </g>
 </svg>

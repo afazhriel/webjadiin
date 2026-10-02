@@ -2,7 +2,15 @@
 <html lang="id" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicon: the Hafi Digital "H" brand mark on a TRANSPARENT canvas.
+         Same path geometry as <BrandMark>, no background shape at all.
+         SVG first for crispness; the PNGs are the same artwork for contexts
+         that refuse SVG favicons. ?v=2 forces browsers past their very
+         aggressive favicon cache after the icon was changed. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hafi Digital — Jasa Pembuatan Website & Digital Presence Profesional</title>
     <meta name="description" content="Layanan pembuatan website company profile, landing page, dan e-commerce profesional, berkinerja tinggi, dan conversion-focused untuk bisnis Anda." />
@@ -46,7 +54,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   </head>
   <body class="bg-background text-foreground font-sans antialiased overflow-x-hidden transition-colors duration-300">
     <div id="root"></div>

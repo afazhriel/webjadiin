@@ -44,8 +44,13 @@ export const Comparison: React.FC = () => {
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-background relative border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-20 atm-indigo-lift relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: lifted indigo, the brightest structural tone on the page,
+          so the comparison table reads as a focal surface. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute -top-24 left-1/3 w-[380px] h-[380px] sm:w-[560px] sm:h-[560px] atm-bloom-indigo pointer-events-none" />
+      <div className="atm-deco-lg atm-ring absolute -bottom-40 -left-32 w-[440px] h-[440px] pointer-events-none" />
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">

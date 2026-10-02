@@ -415,12 +415,23 @@
 
 /* Users who prefer reduced motion: kill decorative loops only. */
 @media (prefers-reduced-motion: reduce) {
-  .animate-float,
-  .animate-float-delayed,
-  .animate-pulse-glow {
-    animation: none;
-  }
-}
+        .animate-float,
+        .animate-float-delayed,
+        .animate-pulse-glow {
+          animation: none;
+        }
+        /* Keep the interactive cards usable, just without movement. */
+        .problem-card:hover,
+        .problem-card[data-active='true'],
+        .problem-card:hover .problem-card-icon,
+        .problem-card[data-active='true'] .problem-card-icon {
+          transform: none;
+        }
+        .problem-card-rail {
+          transition: opacity 250ms ease;
+          transform: scaleY(1);
+        }
+      }
 
 /* Custom Scrollbar using design tokens */
 ::-webkit-scrollbar {
@@ -495,6 +506,284 @@
     calc(var(--shadow-blur) * 1.8)
     var(--shadow-spread)
     rgba(var(--shadow-color), calc(var(--shadow-opacity) * 1.35));
+}
+
+/* ============================================================
+   ATMOSPHERE SYSTEM — "Deep Field"
+   ------------------------------------------------------------
+   A layered navy -> indigo space with controlled light. Every
+   section picks ONE .atm-* surface plus 1-2 soft blooms, so the
+   page has depth and a visual rhythm instead of flat black.
+
+   Blooms are radial GRADIENTS, not filter:blur() boxes: cheaper
+   on the GPU, and the falloff is smoother (no hard disc edge).
+
+   Palette is deliberately narrow:
+     base    #020238 / #03035E / #0A0A47 / #12125E  (navy -> indigo)
+     accent  #0EA5FF cyan, #2563EB cobalt, #6366F1 indigo,
+             #8B5CF6 violet, #0891B2 teal
+     magenta #BE185D — used ONCE only (Promotion)
+   Nothing here touches typography.
+   ============================================================ */
+
+/* --- Section surfaces (opaque, always layered over the page bg) --- */
+.atm-bridge {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #050A2E 0%, #03044A 55%, #020238 100%);
+}
+.atm-teal {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #04222E 0%, #051A3C 45%, #03034A 100%);
+}
+.atm-indigo {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #0A0A47 0%, #060649 52%, #03035E 100%);
+}
+.atm-cobalt {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #0C1550 0%, #081046 48%, #04043E 100%);
+}
+.atm-indigo-lift {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #12125E 0%, #0C0C4E 50%, #070742 100%);
+}
+.atm-violet {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #1B1148 0%, #100C46 50%, #07063F 100%);
+}
+.atm-magenta {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #22103F 0%, #140A45 50%, #0A0642 100%);
+}
+.atm-deepblue {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #0A1240 0%, #07093A 52%, #04043A 100%);
+}
+.atm-teal-deep {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #05222E 0%, #041A38 50%, #030340 100%);
+}
+.atm-violet-deep {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #241250 0%, #150B48 50%, #0A0642 100%);
+}
+.atm-quiet {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #0A0A47 0%, #06064A 55%, #03034A 100%);
+}
+.atm-navy {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #06063F 0%, #04044A 55%, #020238 100%);
+}
+/* Ends on #03035E so it dissolves straight into the footer. */
+.atm-climax {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #12125E 0%, #0A0A52 50%, #03035E 100%);
+}
+
+/* --- Soft blooms (radial gradients, no filter:blur) --- */
+.atm-bloom-cyan {
+  background-image: radial-gradient(closest-side, rgba(14, 165, 255, 0.22) 0%, rgba(14, 165, 255, 0.09) 48%, transparent 74%);
+}
+.atm-bloom-cobalt {
+  background-image: radial-gradient(closest-side, rgba(37, 99, 235, 0.26) 0%, rgba(37, 99, 235, 0.10) 48%, transparent 74%);
+}
+.atm-bloom-indigo {
+  background-image: radial-gradient(closest-side, rgba(99, 102, 241, 0.24) 0%, rgba(99, 102, 241, 0.09) 48%, transparent 74%);
+}
+.atm-bloom-violet {
+  background-image: radial-gradient(closest-side, rgba(139, 92, 246, 0.22) 0%, rgba(139, 92, 246, 0.09) 48%, transparent 74%);
+}
+.atm-bloom-teal {
+  background-image: radial-gradient(closest-side, rgba(8, 145, 178, 0.20) 0%, rgba(8, 145, 178, 0.08) 48%, transparent 74%);
+}
+.atm-bloom-magenta {
+  background-image: radial-gradient(closest-side, rgba(190, 24, 93, 0.18) 0%, rgba(190, 24, 93, 0.07) 48%, transparent 74%);
+}
+
+/* --- Depth helpers --- */
+/* Darkens the outer edge so the section feels like a volume, not a fill. */
+.atm-vignette {
+  background-image: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 0%, transparent 40%, rgba(2, 2, 38, 0.55) 100%);
+}
+/* Section top accent: a single electric-blue hairline, fading at both ends. */
+.atm-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-image: linear-gradient(90deg, transparent 0%, rgba(14, 165, 255, 0.55) 35%, rgba(99, 102, 241, 0.35) 65%, transparent 100%);
+  pointer-events: none;
+}
+/* Thin architectural outline ring — pure geometry, no glow. */
+.atm-ring {
+  border: 1px solid rgba(14, 165, 255, 0.12);
+  border-radius: 9999px;
+}
+
+/* --- Card surfaces -------------------------------------------------
+   Colour + border only. Elevation and the hover lift stay owned by
+   the existing .card-surface so the two never fight over box-shadow. */
+.card-surface-glass {
+  background-color: rgba(7, 7, 58, 0.72);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+.card-surface-glass-featured {
+  background-color: rgba(11, 11, 85, 0.78);
+  border-color: rgba(14, 165, 255, 0.26);
+}
+
+/* ============================================================
+   PROBLEM CARD - interactive "select" card (4-up grid)
+   ------------------------------------------------------------
+   One rule set drives all four cards: each card supplies its own
+   accent through the --card-accent custom property, so there is no
+   per-card CSS duplication and no dynamically-built class names
+   (which Tailwind's scanner would never see).
+
+   State comes from React via [data-active]; the CSS is purely
+   declarative. These classes intentionally REPLACE .card-surface
+   here, because .card-surface:hover is a pseudo-class selector and
+   would out-specify a plain utility class, blocking the accent glow.
+
+   Nothing in this block touches typography - only transform,
+   border-color, background-color, box-shadow and colour accents.
+   ============================================================ */
+.problem-card {
+  --card-accent: #0EA5FF;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  transform: translateY(0);
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    background-color 250ms ease;
+  box-shadow: 0 10px 30px -12px rgba(var(--shadow-color), var(--shadow-opacity));
+}
+.problem-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--card-accent) 55%, transparent);
+  box-shadow:
+    0 18px 38px -16px rgba(var(--shadow-color), var(--shadow-opacity)),
+    0 0 24px -6px color-mix(in srgb, var(--card-accent) 28%, transparent);
+}
+.problem-card[data-active='true'] {
+  transform: translateY(-4px);
+  border-color: var(--card-accent);
+  background-color: color-mix(in srgb, var(--card-accent) 7%, var(--card));
+  box-shadow:
+    0 22px 46px -18px rgba(var(--shadow-color), var(--shadow-opacity)),
+    0 0 30px -6px color-mix(in srgb, var(--card-accent) 40%, transparent);
+}
+.problem-card:focus-visible {
+  outline: 2px solid var(--card-accent);
+  outline-offset: 3px;
+}
+
+/* Active indicator: a single left accent rail. Fades in on hover,
+   goes fully opaque only while the card is the active one. */
+.problem-card-rail {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 9999px;
+  background-color: var(--card-accent);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.problem-card:hover .problem-card-rail {
+  opacity: 0.55;
+  transform: scaleY(1);
+}
+.problem-card[data-active='true'] .problem-card-rail {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* Icon container: tinted at rest, brighter on hover, solid accent
+   (white glyph) while active. */
+.problem-card-icon {
+  color: var(--card-accent);
+  background-color: color-mix(in srgb, var(--card-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 22%, transparent);
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+.problem-card:hover .problem-card-icon {
+  background-color: color-mix(in srgb, var(--card-accent) 16%, transparent);
+  border-color: color-mix(in srgb, var(--card-accent) 34%, transparent);
+  transform: scale(1.06);
+}
+.problem-card[data-active='true'] .problem-card-icon {
+  /* Fill is the accent slightly deepened toward deep navy so the white
+     glyph clears WCAG 1.4.11 (3:1). On #0EA5FF the raw white contrast
+     is only 2.68:1; this mix lifts every accent above the threshold
+     while the border, rail and glow keep the pure brand accent. */
+  background-color: color-mix(in srgb, var(--card-accent) 88%, #082F49);
+  border-color: var(--card-accent);
+  color: #FFFFFF;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--card-accent) 25%, transparent);
+  transform: scale(1.06);
+}
+
+/* Corner wash behind the icon. */
+.problem-card-corner {
+  background-color: color-mix(in srgb, var(--card-accent) 6%, transparent);
+  transition: background-color 250ms ease;
+}
+.problem-card:hover .problem-card-corner,
+.problem-card[data-active='true'] .problem-card-corner {
+  background-color: color-mix(in srgb, var(--card-accent) 12%, transparent);
+}
+
+/* Title keeps its existing typography; only the colour follows the
+   accent, mirroring the hover behaviour the cards already had. */
+.problem-card-title {
+  transition: color 250ms ease;
+}
+.problem-card:hover .problem-card-title,
+.problem-card[data-active='true'] .problem-card-title {
+  color: var(--card-accent);
+}
+
+/* ============================================================
+   RESPONSIVE ATMOSPHERE
+   Small screens get fewer, softer blooms so the page stays light,
+   and decorative geometry is hidden where it would crowd content.
+   ============================================================ */
+@media (max-width: 767px) {
+  .atm-bloom-cyan,
+  .atm-bloom-cobalt,
+  .atm-bloom-indigo,
+  .atm-bloom-violet,
+  .atm-bloom-teal,
+  .atm-bloom-magenta {
+    opacity: 0.75;
+  }
+  .atm-ring {
+    display: none;
+  }
+}
+
+/* Keep large geometry off-screen on narrow viewports (no x-scroll). */
+@media (max-width: 1023px) {
+  .atm-deco-lg {
+    display: none;
+  }
 }
 
 /* Perspective utilities */

@@ -5,10 +5,11 @@ import { getWhatsAppLink } from '../data/config';
 
 export const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
+    <section id="pricing" className="py-14 sm:py-20 lg:py-24 atm-cobalt relative overflow-hidden border-b border-white/[0.06] atm-accent-top">
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
       
       {/* Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] bg-accent/20 rounded-full blur-[110px] sm:blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] atm-bloom-cobalt pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         

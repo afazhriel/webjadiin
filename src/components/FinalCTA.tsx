@@ -11,10 +11,13 @@ export const FinalCTA: React.FC = () => {
   };
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 atm-climax relative overflow-hidden">
+      {/* Atmosphere: the peak light of the page. Ends on #03035E so it
+          dissolves seamlessly into the existing footer gradient. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
       
       {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[700px] sm:h-[700px] bg-accent/25 rounded-full blur-[130px] sm:blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[700px] sm:h-[700px] atm-bloom-cobalt pointer-events-none" />
 
       <div className="max-w-6xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         

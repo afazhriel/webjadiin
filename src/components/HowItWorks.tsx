@@ -30,8 +30,17 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-background relative border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-20 lg:py-24 atm-deepblue relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: deep blue with an indigo bloom centred on the step
+          timeline, plus two hairline rails that echo the connector line. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[400px] sm:w-[680px] sm:h-[680px] atm-bloom-indigo opacity-80 pointer-events-none" />
+      <div className="atm-deco-lg absolute inset-x-0 top-1/2 h-[340px] -translate-y-1/2 pointer-events-none">
+        <svg className="w-full h-full" viewBox="0 0 1200 340" preserveAspectRatio="none" fill="none" aria-hidden="true">
+          <path d="M0 170C300 40 900 300 1200 170" stroke="#6366F1" strokeOpacity="0.16" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+        </svg>
+      </div>
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20 space-y-3 sm:space-y-4">

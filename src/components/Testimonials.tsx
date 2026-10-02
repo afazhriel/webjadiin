@@ -4,10 +4,11 @@ import { Star, Quote } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
+    <section className="py-14 sm:py-20 lg:py-24 atm-violet-deep relative overflow-hidden border-b border-white/[0.06]">
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
       
       {/* Background Lighting */}
-      <div className="absolute top-1/2 -right-40 w-72 h-72 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[110px] sm:blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 -right-40 w-72 h-72 sm:w-96 sm:h-96 atm-bloom-violet pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         

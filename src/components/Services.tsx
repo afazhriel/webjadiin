@@ -13,10 +13,33 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 
 export const Services: React.FC = () => {
   return (
-    <section id="services" className="py-14 sm:py-20 lg:py-24 bg-background relative overflow-hidden border-b border-border">
+    <section id="services" className="py-14 sm:py-20 lg:py-24 atm-indigo relative overflow-hidden border-b border-white/[0.06] atm-accent-top">
       
-      {/* Background Lights */}
-      <div className="absolute top-1/3 -left-40 w-72 h-72 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[110px] sm:blur-[140px] pointer-events-none" />
+      {/* Atmosphere: grid -> light blooms -> curved light trail ->
+          architectural ring -> vignette. All behind the content. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+
+      <div className="absolute -top-24 -left-20 w-[420px] h-[420px] sm:w-[620px] sm:h-[620px] atm-bloom-cyan pointer-events-none" />
+      <div className="absolute -bottom-32 -right-24 w-[460px] h-[460px] sm:w-[680px] sm:h-[680px] atm-bloom-cobalt pointer-events-none" />
+
+      <svg
+        className="absolute top-0 left-0 w-full h-24 sm:h-32 pointer-events-none"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 118C300 24 900 24 1200 118"
+          stroke="#0EA5FF"
+          strokeOpacity="0.18"
+          strokeWidth="1.5"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+
+      <div className="atm-deco-lg atm-ring absolute top-1/2 -right-48 w-[560px] h-[560px] -translate-y-1/2 pointer-events-none" />
+      <div className="absolute inset-0 atm-vignette pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -46,8 +69,8 @@ export const Services: React.FC = () => {
                 key={service.id}
                 className={`group relative rounded-xl border p-5 sm:p-6 lg:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-ring card-surface max-w-full ${
                   isFeatured
-                    ? 'bg-secondary border-border'
-                    : 'bg-card border-border'
+                    ? 'card-surface-glass-featured'
+                    : 'card-surface-glass'
                 }`}
               >
                 {/* Top Badge if any */}

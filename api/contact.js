@@ -59,7 +59,7 @@ export default async function handler(req, res) {
 
     const { error } = await resend.emails.send({
       from: 'Hafi Digital <halo@hafi.digital>',
-      to: ['halo@hafi.digital'],
+      to: ['hafidigitalenterprise@gmail.com'],
       replyTo: email,
       subject: 'New Contact Form - Hafi Digital',
       html: html,

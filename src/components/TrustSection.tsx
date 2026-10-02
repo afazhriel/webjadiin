@@ -40,8 +40,11 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-14 sm:py-16 bg-background border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section className="relative py-14 sm:py-16 atm-bridge overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: quiet cyan bloom bridging the hero into the navy field. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      <div className="absolute -top-28 left-1/4 w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] atm-bloom-cyan pointer-events-none" />
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Header */}
         <div className="text-center max-w-2xl mx-auto mb-9 sm:mb-12">

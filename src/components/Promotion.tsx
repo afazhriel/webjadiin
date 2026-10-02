@@ -41,10 +41,15 @@ export const Promotion: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-background relative overflow-hidden border-b border-border">
+    <section className="py-14 sm:py-20 atm-magenta relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: the single magenta moment on the page. Deliberately
+          low-alpha so it reads as a warm shift, not a pink section. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] sm:w-[720px] sm:h-[720px] atm-bloom-magenta pointer-events-none" />
       
-      {/* Visual Background Lighting */}
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 sm:w-96 sm:h-96 bg-accent/20 rounded-full blur-[110px] sm:blur-[150px] pointer-events-none" />
+      {/* Secondary corner light (replaces the old accent/20 blob, which
+          resolved to an invisible near-black disc over the page). */}
+      <div className="absolute -bottom-20 -right-20 w-64 h-64 sm:w-96 sm:h-96 atm-bloom-violet opacity-60 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         

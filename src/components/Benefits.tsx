@@ -42,8 +42,12 @@ export const Benefits: React.FC = () => {
   ];
 
   return (
-    <section id="benefits" className="py-14 sm:py-20 lg:py-24 bg-background relative border-b border-border">
-      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+    <section id="benefits" className="py-14 sm:py-20 lg:py-24 atm-violet relative overflow-hidden border-b border-white/[0.06]">
+      {/* Atmosphere: violet-indigo, the first real shift of hue on the page. */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[380px] h-[380px] sm:w-[560px] sm:h-[560px] atm-bloom-violet pointer-events-none" />
+      <div className="absolute bottom-0 -left-20 w-[320px] h-[320px] sm:w-[460px] sm:h-[460px] atm-bloom-indigo opacity-70 pointer-events-none" />
+      <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
