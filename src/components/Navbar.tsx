@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageSquare, PhoneCall } from 'lucide-react';
-import { BRAND_CONFIG, getWhatsAppLink } from '../data/config';
+import { Menu, X, MessageSquare } from 'lucide-react';
+import { getWhatsAppLink } from '../data/config';
 import { BrandMark, BrandWordmark, BRAND_FONT_UI } from './BrandMark';
 
 /** Static anchor list — hoisted to module scope so the scroll-spy effect can
@@ -145,24 +145,14 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        {/* 2 + 4. PRIMARY CTA, then secondary phone button */}
+        {/* PRIMARY CTA only — the standalone phone-number button that used to
+            sit beside this one has been removed as requested. */}
         <div className="hidden md:flex items-center gap-2.5 lg:gap-3 flex-shrink-0">
-          <a
-            href={getWhatsAppLink("Halo Hafi Digital, saya ingin bertanya mengenai jasa pembuatan website.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden xl:inline-flex items-center justify-center min-h-[44px] gap-2 px-4 rounded-xl border border-[rgba(14,165,255,0.22)] bg-[rgba(14,165,255,0.08)] text-white font-semibold text-xs hover:bg-[rgba(14,165,255,0.14)] hover:border-[rgba(14,165,255,0.40)] transition-colors duration-200"
-            style={{ fontFamily: FONT_UI }}
-          >
-            <PhoneCall className="w-3.5 h-3.5 shrink-0 text-[#38BDF8]" />
-            <span>{BRAND_CONFIG.phone}</span>
-          </a>
-
           <a
             href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website untuk bisnis saya.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 lg:px-5 py-2.5 rounded-xl text-white font-bold text-xs sm:text-[13px] shadow-[0_8px_24px_rgba(14,165,255,0.22)] hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(14,165,255,0.30)] active:translate-y-0 active:scale-[0.98] transition-all duration-200 bg-[linear-gradient(135deg,#0EA5FF,#2563EB)] hover:bg-[linear-gradient(135deg,#38BDF8,#4F46E5)]"
+            className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 lg:px-5 py-2.5 rounded-xl text-white font-bold text-xs sm:text-[13px] shadow-[0_8px_24px_rgba(12,136,62,0.28)] hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(12,136,62,0.40)] active:translate-y-0 active:scale-[0.98] transition-all duration-200 bg-[linear-gradient(135deg,#0C883E,#075E54)] hover:bg-[linear-gradient(135deg,#0A7638,#063E48)]"
             style={{ fontFamily: FONT_UI }}
           >
             <MessageSquare className="w-4 h-4 shrink-0" />
@@ -215,23 +205,11 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
-              className="w-full min-h-[48px] py-3 px-4 rounded-xl text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(14,165,255,0.22)] bg-[linear-gradient(135deg,#0EA5FF,#2563EB)]"
+              className="w-full min-h-[48px] py-3 px-4 rounded-xl text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(12,136,62,0.28)] bg-[linear-gradient(135deg,#0C883E,#075E54)] active:scale-[0.98] transition-all duration-200"
               style={{ fontFamily: FONT_UI }}
             >
               <MessageSquare className="w-4 h-4 shrink-0" />
-              <span>Konsultasi Via WhatsApp</span>
-            </a>
-
-            <a
-              href={getWhatsAppLink("Halo Hafi Digital, saya ingin bertanya mengenai jasa pembuatan website.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="w-full min-h-[48px] py-3 px-4 rounded-xl border border-[rgba(14,165,255,0.22)] bg-[rgba(14,165,255,0.08)] text-white font-semibold text-sm text-center flex items-center justify-center gap-2 hover:bg-[rgba(14,165,255,0.14)] hover:border-[rgba(14,165,255,0.40)] transition-colors duration-200"
-              style={{ fontFamily: FONT_UI }}
-            >
-              <PhoneCall className="w-4 h-4 shrink-0 text-[#38BDF8]" />
-              <span>{BRAND_CONFIG.phone}</span>
+              <span>Konsultasi Gratis</span>
             </a>
           </div>
         </div>

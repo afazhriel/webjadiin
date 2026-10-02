@@ -46,13 +46,13 @@ export const Services: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
-            SOLUSI DARI KAMI
+            PILIHAN LAYANAN KAMI
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
-            Layanan Pembuatan Website & Digital Presence Profesional
+            Layanan Website untuk Company Profile, Landing Page, dan Toko Online
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Kami menyediakan ekosistem solusi digital terlengkap, dikerjakan oleh tim teknis & UI/UX designer berpengalaman.
+            Mulai dari company profile sederhana sampai toko online dengan sistem pembayaran. Pilih yang paling sesuai dengan kebutuhan bisnis Anda saat ini.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export const Services: React.FC = () => {
             const IconComponent = iconMap[service.icon] || Building2;
             // Featured service gets a tinted surface + primary icon/badge so the
             // hierarchy is readable without turning every card blue.
-            const isFeatured = service.badge === 'Most Popular';
+            const isFeatured = service.featured === true;
 
             return (
               <div

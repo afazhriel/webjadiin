@@ -11,19 +11,19 @@ interface MatrixRow {
 
 export const Comparison: React.FC = () => {
   const comparisonMatrix: MatrixRow[] = [
-    { feature: "Jumlah Halaman", starter: "1 Landing Page", professional: "Hingga 7 Halaman", business: "Unlimited / Custom" },
-    { feature: "Desain Mobile Responsive", starter: true, professional: true, business: true },
-    { feature: "Domain (.com / .id)", starter: "Free 1 Tahun", professional: "Free 1 Tahun", business: "Free 1 Tahun" },
-    { feature: "High-Speed SSD Hosting", starter: "Standard", professional: "Cloud Ultra Fast", business: "Private Enterprise" },
-    { feature: "Integrasi Tombol WhatsApp", starter: true, professional: true, business: true },
-    { feature: "Form Leads / Lead Capture", starter: false, professional: true, business: true },
-    { feature: "Copywriting Persuasif Standard", starter: false, professional: true, business: true },
-    { feature: "Advanced SEO & Schema Org", starter: false, professional: true, business: true },
-    { feature: "Katalog Produk & Cart", starter: false, professional: false, business: true },
-    { feature: "Payment Gateway Integration", starter: false, professional: false, business: true },
-    { feature: "Hitung Ongkir Otomatis", starter: false, professional: false, business: true },
-    { feature: "Waktu Pengerjaan", starter: "3 - 5 Hari", professional: "5 - 7 Hari", business: "10 - 14 Hari" },
-    { feature: "Garansi Maintenance", starter: "1 Bulan", professional: "3 Bulan", business: "6 Bulan" }
+    { feature: "Jumlah halaman", starter: "1 halaman", professional: "hingga 7 halaman", business: "jumlah halaman bebas" },
+    { feature: "Tampilan di HP dan Komputer", starter: true, professional: true, business: true },
+    { feature: "Domain (.com / .id)", starter: "Termasuk 1 tahun", professional: "Termasuk 1 tahun", business: "Termasuk 1 tahun" },
+    { feature: "Hosting", starter: "Standar", professional: "Kapasitas lebih besar", business: "Kapasitas terbesar" },
+    { feature: "Tombol WhatsApp", starter: true, professional: true, business: true },
+    { feature: "Formulir kontak", starter: false, professional: true, business: true },
+    { feature: "Penulisan teks halaman", starter: false, professional: true, business: true },
+    { feature: "SEO dasar", starter: false, professional: true, business: true },
+    { feature: "Katalog produk dan keranjang", starter: false, professional: false, business: true },
+    { feature: "Pembayaran online", starter: false, professional: false, business: true },
+    { feature: "Hitung ongkir otomatis", starter: false, professional: false, business: true },
+    { feature: "Perkiraan waktu pengerjaan", starter: "3 - 5 Hari", professional: "5 - 7 Hari", business: "10 - 14 Hari" },
+    { feature: "Perawatan setelah selesai", starter: "1 Bulan", professional: "3 Bulan", business: "6 Bulan" }
   ];
 
   const renderValue = (val: boolean | string, isPopular = false) => {
@@ -55,13 +55,13 @@ export const Comparison: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
           <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
-            PERBANDINGAN FITUR
+            COCOKKAN PAKET
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-foreground font-sans max-w-full">
-            Bandingkan Setiap Paket Sesuai Kebutuhan Bisnis Anda
+            Pilih Paket yang Paling Cocok untuk Anda
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground">
-            Transparansi penuh fasilitas untuk membantu Anda menentukan keputusan terbaik.
+            Lihat apa saja yang termasuk di setiap paket, lalu pilih yang paling sesuai dengan kebutuhan Anda.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const Comparison: React.FC = () => {
           <table className="w-full min-w-[560px] text-center border-collapse">
             <thead>
               <tr className="border-b border-border bg-muted/50">
-                <th className="p-5 text-left text-sm font-bold text-card-foreground uppercase tracking-wider w-2/5">Fitur & Layanan</th>
+                <th className="p-5 text-left text-sm font-bold text-card-foreground uppercase tracking-wider w-2/5">Yang Anda Dapatkan</th>
                 <th className="p-5 text-sm font-bold text-card-foreground w-1/5">STARTER</th>
                 <th className="p-5 text-sm font-black text-accent-foreground bg-accent/40 border-x border-border w-1/5">
                   PROFESSIONAL ★
@@ -90,7 +90,7 @@ export const Comparison: React.FC = () => {
             </tbody>
             <tfoot>
               <tr className="border-t border-border bg-muted/60">
-                <td className="p-5 text-left text-xs text-muted-foreground font-medium">Siap untuk memulai?</td>
+                <td className="p-5 text-left text-xs text-muted-foreground font-medium">Tinggal pilih paket yang cocok.</td>
                 <td className="p-4">
                   <a
                     href={getWhatsAppLink("Halo Hafi Digital, saya berminat pesan paket Starter.")}

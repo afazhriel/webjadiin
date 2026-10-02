@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
               className="text-[14px] sm:text-[15px] leading-[1.7] max-w-sm"
               style={{ fontFamily: UI_FONT, color: '#C7D2FE' }}
             >
-              {BRAND_CONFIG.description} Didesain khusus dengan visual premium, daya muat super cepat, dan arsitektur conversion-focused.
+              {BRAND_CONFIG.description}
             </p>
 
             <div className="pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3">
@@ -165,8 +165,8 @@ export const Footer: React.FC = () => {
                 </address>
               </li>
               <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 shrink-0 mt-1 text-[#38BDF8]" />
-                <a href={`tel:${BRAND_CONFIG.phone}`} className="inline-flex items-center min-h-[36px] py-0.5 text-[14px] text-[#C7D2FE] hover:text-[#38BDF8] transition-colors duration-200">{BRAND_CONFIG.phone}</a>
+                <Phone className="w-4 h-4 shrink-0 mt-1 text-[#25D366]" />
+                <a href={`tel:${BRAND_CONFIG.phone}`} className="inline-flex items-center min-h-[36px] py-0.5 text-[14px] text-[#C7D2FE] hover:text-[#25D366] transition-colors duration-200">{BRAND_CONFIG.phone}</a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 shrink-0 mt-1 text-[#38BDF8]" />
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
                   href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[48px] items-center justify-center gap-2 w-full sm:w-auto px-5 py-3 rounded-xl text-white font-bold text-[14px] shadow-[0_8px_24px_rgba(14,165,255,0.20)] bg-[linear-gradient(135deg,#0EA5FF,#2563EB)] hover:bg-[linear-gradient(135deg,#38BDF8,#4F46E5)] hover:-translate-y-0.5 transition-all duration-200"
+                  className="inline-flex min-h-[48px] items-center justify-center gap-2 w-full sm:w-auto px-5 py-3 rounded-xl text-white font-bold text-[14px] shadow-[0_8px_24px_rgba(12,136,62,0.26)] bg-[linear-gradient(135deg,#0C883E,#075E54)] hover:bg-[linear-gradient(135deg,#0A7638,#063E48)] hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <MessageSquare className="w-4 h-4 shrink-0" />
                   <span>Chat Direct WhatsApp</span>

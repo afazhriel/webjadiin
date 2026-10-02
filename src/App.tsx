@@ -25,19 +25,14 @@ export default function App() {
       {/* Navigation Header */}
       <Navbar />
 
-      {/* 1. CINEMATIC HERO (Main Opening Section) */}
+      {/* 1. CINEMATIC HERO (Main Opening Section)
+          Text only — the hero introduces the offer, the CTAs live in the
+          navbar and in the sections below. */}
       <CinematicHero
         brandName={BRAND_CONFIG.nameUpper}
-        tagline1="Bangun bisnis Anda,"
-        tagline2="lebih profesional."
-        cardHeading="Digital presence, redefined."
-        cardDescription="Tingkatkan kredibilitas & skala bisnis Anda dengan website cinematic, berkinerja ultra-cepat, dan conversion-focused."
-        metricValue={100}
-        metricLabel="Projects Built"
-        ctaHeading="Siap mendominasi pasar digital?"
-        ctaDescription="Dapatkan konsultasi gratis dan wujudkan website impian untuk pertumbuhan bisnis Anda."
-        primaryCtaText="Mulai Konsultasi"
-        secondaryCtaText="Lihat Paket"
+        tagline1="Bisnis Anda Sudah Bagus."
+        tagline2="Jangan Biarkan Website Membuatnya Terlihat Biasa."
+        cardDescription="Dari company profile, landing page, sampai toko online, kami membuat website yang menyatukan informasi bisnis Anda dalam satu tempat, sehingga calon pelanggan lebih mudah memahami dan menghubungi Anda."
       />
 
       {/* 2. TRUST / SOCIAL PROOF */}

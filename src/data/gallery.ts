@@ -28,7 +28,7 @@ export const galleryImages: GalleryImage[] = [
     src: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop",
     alt: "Surreal Mountain & Aurora Night Sky",
     title: "Cosmic Summit",
-    category: "Cinematic Nature"
+    category: "Alam"
   },
   {
     src: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1000&auto=format&fit=crop",

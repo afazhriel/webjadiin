@@ -5,24 +5,24 @@ import { getWhatsAppLink } from '../data/config';
 
 export const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-14 sm:py-20 lg:py-24 atm-cobalt relative overflow-hidden border-b border-white/[0.06] atm-accent-top">
+    <section id="pricing" className="py-14 sm:py-20 lg:py-24 atm-amber relative overflow-hidden border-b border-white/[0.06] atm-accent-top">
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
       
       {/* Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] atm-bloom-cobalt pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] atm-bloom-amber pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
           <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
-            PAKET HARGA TRANSPARAN
+            HARGA YANG JELAS
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
-            Investasi Terbaik Terjangkau untuk Masa Depan Bisnis Anda
+            Pilih Paket Sesuai Kebutuhan Anda
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Tanpa biaya tersembunyi. Dapatkan hasil maksimal berkelas profesional dengan garansi penuh dan layanan maintenance.
+            Semua yang tertulis di bawah ini sudah termasuk dalam harga. Tidak ada biaya tambahan di tengah jalan.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export const Pricing: React.FC = () => {
                   {/* Feature Checklist */}
                   <div className="space-y-3 mb-6 sm:mb-8">
                     <div className="text-[11px] sm:text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                      FASILITAS LENGKAP:
+                      Yang Anda Dapatkan:
                     </div>
                     {pkg.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-card-foreground">
@@ -125,7 +125,7 @@ export const Pricing: React.FC = () => {
 
         {/* Custom Project Note */}
         <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-secondary p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
-          Butuh fitur spesifik di luar paket standar? Kami siap membuatkan sistem <span className="text-accent-foreground font-semibold">Custom Web App</span> sesuai kebutuhan unik bisnis Anda.{" "}
+          Butuh fitur di luar paket di atas? Kami bisa membuatkan <span className="text-accent-foreground font-semibold">Custom Web App</span> sesuai kebutuhan bisnis Anda.{" "}
           <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-accent-foreground underline font-semibold hover:opacity-80">
             Hubungi Tim Teknis
           </a>

@@ -48,11 +48,11 @@ export const ContactForm: React.FC = () => {
         });
       } else {
         const data = await response.json().catch(() => ({}));
-        setErrorMessage(data.message || 'Gagal mengirim pesan. Silakan coba lagi.');
+        setErrorMessage(data.message || 'Pesan belum terkirim. Silakan coba lagi.');
         setState('error');
       }
     } catch (error) {
-      setErrorMessage('Gagal mengirim pesan. Silakan coba lagi.');
+      setErrorMessage('Pesan belum terkirim. Silakan coba lagi.');
       setState('error');
     }
   };
@@ -60,11 +60,11 @@ export const ContactForm: React.FC = () => {
   const buttonText = state === 'submitting' ? 'Mengirim...' : state === 'success' ? 'Terkirim' : 'Kirim Pesan';
 
   return (
-    <section id="contact" className="py-14 sm:py-20 lg:py-24 atm-navy relative overflow-hidden">
+    <section id="contact" className="py-14 sm:py-20 lg:py-24 atm-emerald-deep relative overflow-hidden">
       {/* Atmosphere: deep navy with a cyan bloom behind the form card and a
           curved light trail on top, so this block flows into FinalCTA. */}
       <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
-      <div className="absolute -top-24 right-1/4 w-[360px] h-[360px] sm:w-[540px] sm:h-[540px] atm-bloom-cyan pointer-events-none" />
+      <div className="absolute -top-24 right-1/4 w-[360px] h-[360px] sm:w-[540px] sm:h-[540px] atm-bloom-emerald pointer-events-none" />
       <svg
         className="absolute top-0 left-0 w-full h-20 sm:h-28 pointer-events-none"
         viewBox="0 0 1200 120"
@@ -77,10 +77,10 @@ export const ContactForm: React.FC = () => {
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground font-grotesk leading-tight">
-            Hubungi Kami
+            Mari Berbicara
           </h2>
           <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Punya pertanyaan tentang proyek Anda? Kirim pesan dan kami akan segera menghubungi Anda.
+            Ceritakan kebutuhan Anda. Isi form ini dan tim kami akan menghubungi Anda lewat WhatsApp.
           </p>
         </div>
 
@@ -134,12 +134,12 @@ export const ContactForm: React.FC = () => {
                   onChange={handleChange}
                   disabled={state === 'submitting'}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="+62 812 3456 7890"
+                  placeholder="08xxxxxxxxxx"
                 />
               </div>
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-semibold text-foreground">
-                  Layanan yang Dibutuhkan
+                  Layanan yang Anda Butuhkan
                 </label>
                 <input
                   type="text"
@@ -149,7 +149,7 @@ export const ContactForm: React.FC = () => {
                   onChange={handleChange}
                   disabled={state === 'submitting'}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Website Company Profile, Landing Page, dll."
+                  placeholder="Contoh: Company Profile"
                 />
               </div>
             </div>
@@ -167,7 +167,7 @@ export const ContactForm: React.FC = () => {
                 onChange={handleChange}
                 disabled={state === 'submitting'}
                 className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors resize-y min-h-[120px] disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="Ceritakan kebutuhan proyek Anda di sini..."
+                placeholder="Contoh: saya butuh company profile untuk bisnis saya di Bandung"
               />
             </div>
 
@@ -175,7 +175,7 @@ export const ContactForm: React.FC = () => {
               <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
                 <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                 <p className="text-sm">
-                  Pesan berhasil dikirim. Kami akan segera menghubungi Anda.
+                  Pesan Anda sudah masuk. Tim kami akan menghubungi Anda lewat WhatsApp.
                 </p>
               </div>
             )}
@@ -184,7 +184,7 @@ export const ContactForm: React.FC = () => {
               <div className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400">
                 <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
                 <p className="text-sm">
-                  {errorMessage || 'Gagal mengirim pesan. Silakan coba lagi.'}
+                  {errorMessage || 'Pesan belum terkirim. Silakan coba lagi.'}
                 </p>
               </div>
             )}

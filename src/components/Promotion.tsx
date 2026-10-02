@@ -34,10 +34,10 @@ export const Promotion: React.FC = () => {
 
   const promoBonus = [
     "Gratis Registrasi Domain (.com / .id) 1 Tahun",
-    "Gratis Cloud Hosting NVMe High-Speed 1 Tahun",
+    "Gratis Hosting 1 Tahun",
     "Gratis Sertifikat SSL Keamanan (HTTPS)",
-    "Free Bonus Integrasi Chat WhatsApp Otomatis",
-    "Free Garansi & Pendampingan Penuh Maintenance"
+    "Bonus Integrasi Chat WhatsApp",
+    "Bonus Pendampingan Setelah Website Rilis"
   ];
 
   return (
@@ -64,7 +64,7 @@ export const Promotion: React.FC = () => {
 
             <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-accent-foreground">
               <Gift className="w-4 h-4 shrink-0 text-primary-foreground" />
-              <span>Sisa Kuota: Terbatas 7 Slot Bulan Ini</span>
+              <span>Tersisa 7 Slot Bulan Ini</span>
             </div>
           </div>
 
@@ -73,17 +73,17 @@ export const Promotion: React.FC = () => {
             {/* Left Column Text */}
             <div className="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
               <h2 className="text-2xl sm:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
-                Klaim Penawaran Pembuatan Website Profesional Hari Ini!
+                Potongan Harga Oktober untuk Website Bisnis
               </h2>
 
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Dapatkan paket pembuatan website berkinerja tinggi dengan potongan harga khusus dan bonus eksklusif bernilai jutaan rupiah.
+                Harga paket sedang diturunkan, dan ada beberapa bonus yang sudah termasuk di dalam pembelian.
               </p>
 
               {/* Bonus List */}
               <div className="space-y-2.5 pt-2">
                 <div className="text-[11px] sm:text-xs font-bold text-accent-foreground uppercase tracking-wider">
-                  BONUS GRATIS TERMASUK:
+                  BONUS YANG SUDAH TERMASUK:
                 </div>
                 {promoBonus.map((bonus, i) => (
                   <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground">
@@ -102,7 +102,7 @@ export const Promotion: React.FC = () => {
                   className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-4 rounded-xl bg-primary hover:opacity-90 text-primary-foreground font-extrabold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-theme transition-all hover:scale-105 active:scale-95"
                 >
                   <MessageSquare className="w-5 h-5 shrink-0 fill-primary-foreground/20" />
-                  <span>Ambil Promo Spesial Sekarang</span>
+                  <span>Ambil Promo Sekarang</span>
                   <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
               </div>

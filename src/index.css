@@ -581,6 +581,34 @@
   background-image: linear-gradient(180deg, #12125E 0%, #0A0A52 50%, #03035E 100%);
 }
 
+/* --- Psychological tier ---------------------------------------------
+   Added so each section can carry the colour its job actually needs,
+   without abandoning the dark navy base:
+
+     green  = growth / gain / "yes"   -> Benefits, ContactForm, FinalCTA
+     amber  = urgency / value / decide -> Pricing
+
+   Both are heavily desaturated and collapse back into navy so the page
+   still reads as one premium dark product rather than a colour wheel. */
+.atm-emerald {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #05282A 0%, #051A3C 46%, #03034A 100%);
+}
+.atm-emerald-deep {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #06272F 0%, #041A38 50%, #030340 100%);
+}
+/* Also ends on #03035E so it still dissolves into the footer. */
+.atm-climax-green {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #093033 0%, #061343 50%, #03035E 100%);
+}
+/* Warm, low amber: reads as "decide now" next to the blue pricing cards. */
+.atm-amber {
+  background-color: #020238;
+  background-image: linear-gradient(180deg, #2B1C08 0%, #14123F 48%, #04043E 100%);
+}
+
 /* --- Soft blooms (radial gradients, no filter:blur) --- */
 .atm-bloom-cyan {
   background-image: radial-gradient(closest-side, rgba(14, 165, 255, 0.22) 0%, rgba(14, 165, 255, 0.09) 48%, transparent 74%);
@@ -599,6 +627,14 @@
 }
 .atm-bloom-magenta {
   background-image: radial-gradient(closest-side, rgba(190, 24, 93, 0.18) 0%, rgba(190, 24, 93, 0.07) 48%, transparent 74%);
+}
+/* Kept deliberately faint. A saturated green bloom on a dark navy field
+   turns muddy fast, so these stay well under the blue blooms' strength. */
+.atm-bloom-emerald {
+  background-image: radial-gradient(closest-side, rgba(16, 185, 129, 0.17) 0%, rgba(16, 185, 129, 0.07) 48%, transparent 74%);
+}
+.atm-bloom-amber {
+  background-image: radial-gradient(closest-side, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.06) 48%, transparent 74%);
 }
 
 /* --- Depth helpers --- */

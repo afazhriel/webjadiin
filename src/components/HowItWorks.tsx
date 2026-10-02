@@ -5,26 +5,26 @@ export const HowItWorks: React.FC = () => {
   const steps = [
     {
       number: "01",
-      title: "Konsultasi & Strategi",
-      description: "Diskusi kebutuhan bisnis, target audiens, serta rekomendasi struktur website terbaik.",
+      title: "Diskusi Kebutuhan",
+      description: "Kami tanyakan kondisi bisnis Anda, siapa calon pelanggan, dan apa tujuan utama website ini.",
       icon: MessageSquareCode
     },
     {
       number: "02",
-      title: "Pengumpulan Brief",
-      description: "Penyerahan logo, materi teks, foto produk, dan referensi desain sesuai preferensi Anda.",
+      title: "Kumpulkan Materi",
+      description: "Anda kirim logo, foto, dan teks yang sudah ada. Kalau belum ada, tidak masalah, kami bantu siapkan.",
       icon: FileCheck2
     },
     {
       number: "03",
-      title: "Proses Development",
-      description: "Tim ahli merancang UI/UX, coding responsive, optimasi SEO, dan integrasi fitur.",
+      title: "Desain & Pengerjaan",
+      description: "Tampilan dan isi dikerjakan bertahap, dan Anda bisa melihat hasilnya di tengah proses.",
       icon: Laptop
     },
     {
       number: "04",
-      title: "Review & Launch",
-      description: "Uji coba penuh di semua perangkat, revisi final, dan peluncuran resmi website Anda.",
+      title: "Cek & Luncurkan",
+      description: "Website diuji di HP dan komputer, Anda periksa, lalu kami onlinekan setelah disetujui.",
       icon: Rocket
     }
   ];
@@ -45,13 +45,13 @@ export const HowItWorks: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20 space-y-3 sm:space-y-4">
           <span className="inline-block text-[10px] sm:text-xs font-bold tracking-widest text-accent-foreground uppercase bg-accent border border-border px-3 py-1 rounded-full">
-            ALUR KERJA
+            CARA KERJA
           </span>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-foreground font-sans leading-tight max-w-full">
-            4 Langkah Mudah Memiliki Website Profesional
+            Empat Langkah dari Diskusi hingga Website Online
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Proses transparan, terstruktur, dan cepat tanpa menyita banyak waktu berharga Anda.
+            Alurnya jelas, jadi Anda tahu perlu menyiapkan apa saja dan kapan websitenya selesai.
           </p>
         </div>
 

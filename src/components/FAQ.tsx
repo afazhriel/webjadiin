@@ -87,8 +87,8 @@ export const FAQ: React.FC = () => {
         {/* Unresolved Questions Callout */}
         <div className="mt-10 sm:mt-12 text-center p-5 sm:p-6 rounded-2xl bg-secondary border border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left space-y-1 w-full sm:w-auto">
-            <h4 className="text-sm font-bold text-foreground font-grotesk max-w-full">Punya Pertanyaan Lain yang Belum Terjawab?</h4>
-            <p className="text-xs text-muted-foreground">Tim kami siap menjawab pertanyaan teknis Anda 24/7 via WhatsApp.</p>
+            <h4 className="text-sm font-bold text-foreground font-grotesk max-w-full">Punya pertanyaan lain?</h4>
+            <p className="text-xs text-muted-foreground">Tanyakan langsung ke tim kami lewat WhatsApp.</p>
           </div>
           <a
             href={getWhatsAppLink("Halo Hafi Digital, saya punya pertanyaan mengenai pengerjaan website.")}

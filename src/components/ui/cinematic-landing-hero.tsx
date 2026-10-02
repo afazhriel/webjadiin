@@ -31,7 +31,10 @@ export interface CinematicHeroProps {
 }
 
 export const CinematicHero: React.FC<CinematicHeroProps> = ({
-  brandName = BRAND_CONFIG.name
+  brandName = BRAND_CONFIG.name,
+  tagline1,
+  tagline2,
+  cardDescription
 }) => {
   // Phones & tablets have no hover, so the background typography stays
   // completely static there instead of drifting on every touch move.
@@ -102,6 +105,28 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
             {brandName}
           </span>
         </div>
+      </div>
+
+      {/* Copy layer — the part of the hero that actually speaks.
+          Sits above the decorative wordmark. Deliberately text only: the
+          primary CTAs already live in the navbar and again in the sections
+          below, so this block introduces the offer without adding buttons. */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h1 className="text-[26px] leading-[1.18] sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.06] font-extrabold font-grotesk text-foreground text-balance">
+          {tagline1}
+          {tagline2 && (
+            <>
+              {' '}
+              <span className="text-muted-foreground">{tagline2}</span>
+            </>
+          )}
+        </h1>
+
+        {cardDescription && (
+          <p className="mt-4 sm:mt-6 mx-auto max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-muted-foreground text-pretty">
+            {cardDescription}
+          </p>
+        )}
       </div>
     </section>
   );

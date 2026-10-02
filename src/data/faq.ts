@@ -7,32 +7,32 @@ export interface FAQItem {
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "faq-1",
-    question: "Berapa lama proses pembuatan website dari awal sampai siap di-launch?",
-    answer: "Waktu pengerjaan bergantung pada paket yang dipilih. Paket Starter memakan waktu 3-5 hari kerja, Paket Professional 5-7 hari kerja, dan Paket Business 10-14 hari kerja setelah materi (logo, teks, dan foto) diserahkan."
+    question: "Berapa lama website selesai dibuat?",
+    answer: "Waktu pengerjaan bergantung pada paket yang dipilih. Paket Starter 3-5 hari kerja, Professional 5-7 hari kerja, dan Business 10-14 hari kerja. Hitungan ini mulai berjalan setelah logo, teks, dan foto Anda kami terima."
   },
   {
     id: "faq-2",
-    question: "Apakah saya harus menyiapkan domain dan hosting sendiri?",
-    answer: "Tidak perlu! Semua paket layanan Hafi Digital sudah mencakup GRATIS Domain (.com / .id) serta Cloud Hosting ultra-cepat selama 1 tahun pertama."
+    question: "Apakah domain dan hosting sudah termasuk?",
+    answer: "Sudah termasuk. Semua paket sudah mencakup domain (.com / .id) dan hosting selama 1 tahun pertama, jadi Anda tidak perlu mencari sendiri."
   },
   {
     id: "faq-3",
-    question: "Apakah website buatan Hafi Digital mudah diakses via handphone?",
-    answer: "Sangat responsif! Kami mendesain website dengan pendekatan Mobile-First. Website Anda akan tampil sempurna, cepat, dan rapi di layar smartphone, tablet, laptop, hingga monitor 4K."
+    question: "Apakah website-nya bisa dibuka dari handphone?",
+    answer: "Bisa. Kami merancang tampilan untuk layar handphone terlebih dahulu, lalu menyesuaikan untuk tablet dan komputer. Tampilannya tetap rapi di handphone, tablet, laptop, dan monitor besar."
   },
   {
     id: "faq-4",
-    question: "Bagaimana jika nanti saya ingin mengubah atau menambah konten di website?",
-    answer: "Kami menggunakan Content Management System (CMS) yang ramah pengguna. Kami juga menyediakan panduan video serta layanan garansi maintenance gratis untuk membantu Anda melakukan update konten kapan saja."
+    question: "Kalau nanti saya ingin mengubah isi website, bisa?",
+    answer: "Bisa. Website memakai panel pengelolaan yang sederhana, dan kami sertakan panduan video. Selama masa perawatan, Anda juga bisa minta bantuan kami kalau ada bagian yang ingin diubah."
   },
   {
     id: "faq-5",
-    question: "Apakah website disukai oleh mesin pencari Google (SEO Friendly)?",
-    answer: "Ya! Struktur website kami dibangun sesuai kaidah SEO modern (Clean Heading Hierarchy, Meta Tags, OpenGraph, Fast Loading, Mobile Responsive, dan XML Sitemap) agar lebih mudah terindeks di halaman pertama Google."
+    question: "Apakah website saya akan muncul di pencarian Google?",
+    answer: "Setiap website sudah kami siapkan bagian dasar SEO, seperti struktur judul halaman, deskripsi, dan peta situs. Ini membantu mesin pencari membaca isi website Anda dengan lebih mudah."
   },
   {
     id: "faq-6",
-    question: "Bagaimana sistem pembayaran pembuatan website di Hafi Digital?",
-    answer: "Sistem pembayaran sangat fleksibel dan aman. Pembayaran dilakukan dengan Down Payment (DP) 50% di awal saat persetujuan proposal, dan pelunasan 50% setelah website selesai diuji coba & siap diluncurkan."
+    question: "Bagaimana cara pembayarannya?",
+    answer: "Pembayaran dibagi dua tahap. Separuh dibayar setelah Anda menyetujui rancangan, dan sisanya setelah website selesai serta Anda setujui hasilnya."
   }
 ];
