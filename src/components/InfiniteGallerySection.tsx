@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { InfiniteGallery } from './ui/3d-gallery-photography';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { galleryImages } from '../data/gallery';
 import { Sparkles, MoveVertical } from 'lucide-react';
 
+// The 3D gallery pulls in the entire three.js / @react-three stack. It is
+// mapped only to this below-the-fold section, so it is code-split and mounted
+// lazily once the canvas is near the viewport. This keeps three.js out of the
+// initial bundle without changing how the gallery looks or behaves.
+const InfiniteGallery = React.lazy(() =>
+  import('./ui/3d-gallery-photography').then((m) => ({ default: m.InfiniteGallery }))
+);
+
 export const InfiniteGallerySection: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -13,6 +22,26 @@ export const InfiniteGallerySection: React.FC = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile, { passive: true });
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setShowGallery(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowGallery(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '600px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -41,16 +70,23 @@ export const InfiniteGallerySection: React.FC = () => {
       </div>
 
       {/* 3D Gallery Canvas Container */}
-      <div className="relative w-full max-w-full h-[58svh] min-h-[340px] max-h-[560px] sm:h-[70vh] sm:min-h-[500px] sm:max-h-[800px] my-4">
-        <InfiniteGallery
-          images={galleryImages}
-          speed={1.2}
-          zSpacing={3.2}
-          visibleCount={isMobile ? 8 : 12}
-          falloff={{ near: 0.8, far: 14 }}
-          className="h-full w-full"
-          autoplay={true}
-        />
+      <div
+        ref={canvasRef}
+        className="relative w-full max-w-full h-[58svh] min-h-[340px] max-h-[560px] sm:h-[70vh] sm:min-h-[500px] sm:max-h-[800px] my-4"
+      >
+        {showGallery ? (
+          <Suspense fallback={null}>
+            <InfiniteGallery
+              images={galleryImages}
+              speed={1.2}
+              zSpacing={3.2}
+              visibleCount={isMobile ? 8 : 12}
+              falloff={{ near: 0.8, far: 14 }}
+              className="h-full w-full"
+              autoplay={true}
+            />
+          </Suspense>
+        ) : null}
 
         {/* Subtle UX Interaction Indicator */}
         <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none w-full max-w-full px-4 flex justify-center">

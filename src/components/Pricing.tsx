@@ -102,6 +102,7 @@ export const Pricing: React.FC = () => {
                     href={getWhatsAppLink(pkg.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-source="pricing"
                     className={`w-full min-h-[48px] py-3.5 sm:py-4 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all duration-200 active:scale-95 shadow-theme ${
                       isPopular
                         ? 'bg-primary hover:opacity-90 text-primary-foreground'
@@ -126,7 +127,7 @@ export const Pricing: React.FC = () => {
         {/* Custom Project Note */}
         <div className="mt-10 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground bg-secondary p-4 rounded-xl border border-border max-w-2xl mx-auto shadow-theme">
           Butuh fitur di luar paket di atas? Kami bisa membuatkan <span className="text-accent-foreground font-semibold">Custom Web App</span> sesuai kebutuhan bisnis Anda.{" "}
-          <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" className="text-accent-foreground underline font-semibold hover:opacity-80">
+          <a href={getWhatsAppLink("Halo Hafi Digital, saya butuh penawaran harga custom project khusus.")} target="_blank" rel="noopener noreferrer" data-source="pricing_custom" className="text-accent-foreground underline font-semibold hover:opacity-80">
             Hubungi Tim Teknis
           </a>
         </div>

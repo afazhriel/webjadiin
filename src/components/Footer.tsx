@@ -174,9 +174,10 @@ export const Footer: React.FC = () => {
               </li>
               <li className="pt-2">
                 <a
-                  href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website.")}
+                  href={getWhatsAppLink("Halo Hafi Digital, saya ingin konsultasi mengenai pembuatan website untuk bisnis saya.")}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-source="footer"
                   className="inline-flex min-h-[48px] items-center justify-center gap-2 w-full sm:w-auto px-5 py-3 rounded-xl text-white font-bold text-[14px] shadow-[0_8px_24px_rgba(12,136,62,0.26)] bg-[linear-gradient(135deg,#0C883E,#075E54)] hover:bg-[linear-gradient(135deg,#0A7638,#063E48)] hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <MessageSquare className="w-4 h-4 shrink-0" />
@@ -197,7 +198,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-x-5 sm:gap-6 gap-y-1">
             <a href="#" className="inline-flex items-center min-h-[36px] text-[13px] text-[#94A3B8] hover:text-[#38BDF8] transition-colors duration-200">Privacy Policy</a>
             <a href="#" className="inline-flex items-center min-h-[36px] text-[13px] text-[#94A3B8] hover:text-[#38BDF8] transition-colors duration-200">Terms of Service</a>
-            <a href="#" className="inline-flex items-center min-h-[36px] text-[13px] text-[#94A3B8] hover:text-[#38BDF8] transition-colors duration-200">Sitemap</a>
+            <a href="/sitemap.xml" className="inline-flex items-center min-h-[36px] text-[13px] text-[#94A3B8] hover:text-[#38BDF8] transition-colors duration-200">Sitemap</a>
           </div>
         </div>
 

@@ -7,10 +7,10 @@ import { BrandMark, BrandWordmark, BRAND_FONT_UI } from './BrandMark';
  *  read it without depending on render order. */
 const navLinks = [
   { name: 'Layanan', href: '#services' },
-  { name: 'Harga', href: '#pricing' },
   { name: 'Keunggulan', href: '#benefits' },
   { name: 'Galeri 3D', href: '#gallery' },
   { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Harga', href: '#pricing' },
   { name: 'FAQ', href: '#faq' }
 ];
 
@@ -149,9 +149,11 @@ export const Navbar: React.FC = () => {
             sit beside this one has been removed as requested. */}
         <div className="hidden md:flex items-center gap-2.5 lg:gap-3 flex-shrink-0">
           <a
-            href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website untuk bisnis saya.")}
+            href={getWhatsAppLink("Halo Hafi Digital, saya ingin konsultasi gratis mengenai pembuatan website untuk bisnis saya.")}
             target="_blank"
             rel="noopener noreferrer"
+            data-track="navbar_cta_click"
+            data-source="navbar"
             className="inline-flex items-center justify-center min-h-[44px] gap-2 px-4 lg:px-5 py-2.5 rounded-xl text-white font-bold text-xs sm:text-[13px] shadow-[0_8px_24px_rgba(12,136,62,0.28)] hover:-translate-y-px hover:shadow-[0_12px_28px_rgba(12,136,62,0.40)] active:translate-y-0 active:scale-[0.98] transition-all duration-200 bg-[linear-gradient(135deg,#0C883E,#075E54)] hover:bg-[linear-gradient(135deg,#0A7638,#063E48)]"
             style={{ fontFamily: FONT_UI }}
           >
@@ -201,9 +203,11 @@ export const Navbar: React.FC = () => {
 
           <div className="pt-4 mt-1 flex flex-col gap-3">
             <a
-              href={getWhatsAppLink("Halo Hafi Digital, saya ingin pesan website.")}
+              href={getWhatsAppLink("Halo Hafi Digital, saya ingin konsultasi gratis mengenai pembuatan website untuk bisnis saya.")}
               target="_blank"
               rel="noopener noreferrer"
+              data-track="navbar_cta_click"
+              data-source="navbar_mobile"
               onClick={closeMenu}
               className="w-full min-h-[48px] py-3 px-4 rounded-xl text-white font-bold text-sm text-center flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(12,136,62,0.28)] bg-[linear-gradient(135deg,#0C883E,#075E54)] active:scale-[0.98] transition-all duration-200"
               style={{ fontFamily: FONT_UI }}

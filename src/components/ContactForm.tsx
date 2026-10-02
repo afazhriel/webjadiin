@@ -1,7 +1,20 @@
-import React, { useState } from 'react';
-import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Send, CheckCircle, AlertCircle, Loader2, MessageSquare } from 'lucide-react';
+import { getWhatsAppLink } from '../data/config';
+import { track } from '../lib/analytics';
 
 export type FormState = 'idle' | 'submitting' | 'success' | 'error';
+
+const SERVICE_OPTIONS = [
+  'Company Profile',
+  'Landing Page',
+  'Toko Online',
+  'Belum yakin',
+  'Lainnya'
+];
+
+const GENERIC_ERROR =
+  'Pesan belum berhasil dikirim. Silakan coba lagi, atau hubungi kami langsung melalui WhatsApp.';
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -13,9 +26,10 @@ export const ContactForm: React.FC = () => {
   });
   const [state, setState] = useState<FormState>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const startedRef = useRef(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -23,8 +37,16 @@ export const ContactForm: React.FC = () => {
     }));
   };
 
+  // Fire the "start" event once, the first time the visitor touches a field.
+  const handleFirstInteraction = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    track('contact_form_start', { source: 'contact_form' });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    track('contact_form_submit', { source: 'contact_form' });
     setState('submitting');
     setErrorMessage('');
 
@@ -39,6 +61,7 @@ export const ContactForm: React.FC = () => {
 
       if (response.ok) {
         setState('success');
+        track('contact_form_success', { source: 'contact_form' });
         setFormData({
           name: '',
           email: '',
@@ -46,18 +69,27 @@ export const ContactForm: React.FC = () => {
           subject: '',
           message: '',
         });
+        startedRef.current = false;
       } else {
-        const data = await response.json().catch(() => ({}));
-        setErrorMessage(data.message || 'Pesan belum terkirim. Silakan coba lagi.');
+        // Never surface a raw server message to the visitor.
+        setErrorMessage(GENERIC_ERROR);
         setState('error');
+        track('contact_form_error', { source: 'contact_form' });
       }
     } catch (error) {
-      setErrorMessage('Pesan belum terkirim. Silakan coba lagi.');
+      setErrorMessage(GENERIC_ERROR);
       setState('error');
+      track('contact_form_error', { source: 'contact_form' });
     }
   };
 
-  const buttonText = state === 'submitting' ? 'Mengirim...' : state === 'success' ? 'Terkirim' : 'Kirim Pesan';
+  const buttonText =
+    state === 'submitting' ? 'Mengirim...' : state === 'success' ? 'Terkirim' : 'Kirim Permintaan Konsultasi';
+
+  const fallbackMessage =
+    state === 'error'
+      ? 'Halo Hafi Digital, saya mencoba mengisi form konsultasi tetapi belum berhasil. Saya ingin dibantu terkait pembuatan website bisnis saya.'
+      : 'Halo Hafi Digital, saya baru mengisi form konsultasi dan ingin lanjut diskusi lewat WhatsApp.';
 
   return (
     <section id="contact" className="py-14 sm:py-20 lg:py-24 atm-emerald-deep relative overflow-hidden">
@@ -77,10 +109,13 @@ export const ContactForm: React.FC = () => {
       <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground font-grotesk leading-tight">
-            Mari Berbicara
+            Ceritakan Kebutuhan Website Anda
           </h2>
           <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Ceritakan kebutuhan Anda. Isi form ini dan tim kami akan menghubungi Anda lewat WhatsApp.
+            Ceritakan singkat tentang bisnis dan website yang Anda butuhkan. Tim kami akan menghubungi Anda lewat WhatsApp.
+          </p>
+          <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto">
+            Belum yakin jenis website yang dibutuhkan? Kami bisa membantu menentukan struktur yang paling sesuai.
           </p>
         </div>
 
@@ -98,8 +133,9 @@ export const ContactForm: React.FC = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
+                  onFocus={handleFirstInteraction}
                   disabled={state === 'submitting'}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Nama lengkap"
                 />
               </div>
@@ -114,8 +150,9 @@ export const ContactForm: React.FC = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
+                  onFocus={handleFirstInteraction}
                   disabled={state === 'submitting'}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="nama@email.com"
                 />
               </div>
@@ -124,7 +161,7 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="space-y-2">
                 <label htmlFor="phone" className="text-sm font-semibold text-foreground">
-                  Telepon
+                  Telepon / WhatsApp
                 </label>
                 <input
                   type="tel"
@@ -132,31 +169,38 @@ export const ContactForm: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  onFocus={handleFirstInteraction}
                   disabled={state === 'submitting'}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="08xxxxxxxxxx"
                 />
               </div>
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-semibold text-foreground">
-                  Layanan yang Anda Butuhkan
+                  Website apa yang Anda butuhkan?
                 </label>
-                <input
-                  type="text"
+                <select
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
+                  onFocus={handleFirstInteraction}
                   disabled={state === 'submitting'}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Contoh: Company Profile"
-                />
+                  className="w-full min-h-[48px] px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <option value="">Pilih jenis website (opsional)</option>
+                  {SERVICE_OPTIONS.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
             <div className="space-y-2">
               <label htmlFor="message" className="text-sm font-semibold text-foreground">
-                Pesan <span className="text-red-500">*</span>
+                Kebutuhan <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
@@ -165,6 +209,7 @@ export const ContactForm: React.FC = () => {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
+                onFocus={handleFirstInteraction}
                 disabled={state === 'submitting'}
                 className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors resize-y min-h-[120px] disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="Contoh: saya butuh company profile untuk bisnis saya di Bandung"
@@ -172,20 +217,45 @@ export const ContactForm: React.FC = () => {
             </div>
 
             {state === 'success' && (
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
-                <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
-                <p className="text-sm">
-                  Pesan Anda sudah masuk. Tim kami akan menghubungi Anda lewat WhatsApp.
-                </p>
+              <div className="flex flex-col gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-sm font-semibold">Terima kasih, permintaan Anda sudah kami terima.</p>
+                    <p className="text-sm mt-1">
+                      Tim Hafi Digital akan menghubungi Anda lewat WhatsApp untuk mendiskusikan kebutuhan website.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={getWhatsAppLink(fallbackMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-source="contact_success"
+                  className="self-start inline-flex items-center gap-2 min-h-[44px] px-4 py-2.5 rounded-xl bg-[linear-gradient(135deg,#0C883E,#075E54)] text-white font-bold text-xs transition-all hover:opacity-90 active:scale-95"
+                >
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>Lanjut Diskusi via WhatsApp</span>
+                </a>
               </div>
             )}
 
             {state === 'error' && (
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400">
-                <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
-                <p className="text-sm">
-                  {errorMessage || 'Pesan belum terkirim. Silakan coba lagi.'}
-                </p>
+              <div className="flex flex-col gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <p className="text-sm">{errorMessage || GENERIC_ERROR}</p>
+                </div>
+                <a
+                  href={getWhatsAppLink(fallbackMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-source="contact_error"
+                  className="self-start inline-flex items-center gap-2 min-h-[44px] px-4 py-2.5 rounded-xl bg-[linear-gradient(135deg,#0C883E,#075E54)] text-white font-bold text-xs transition-all hover:opacity-90 active:scale-95"
+                >
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>Hubungi via WhatsApp</span>
+                </a>
               </div>
             )}
 

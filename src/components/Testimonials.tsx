@@ -1,6 +1,7 @@
 import React from 'react';
 import { TESTIMONIALS, TestimonialItem } from '../data/testimonials';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, MessageSquare } from 'lucide-react';
+import { getWhatsAppLink } from '../data/config';
 
 export const Testimonials: React.FC = () => {
   return (
@@ -63,11 +64,26 @@ export const Testimonials: React.FC = () => {
                 <div className="min-w-0">
                   <h4 className="text-sm font-bold text-foreground font-grotesk">{t.name}</h4>
                   <p className="text-[11px] sm:text-xs text-accent-foreground font-medium">{t.role} — <span className="text-muted-foreground">{t.company}</span></p>
+                  <p className="text-[10px] sm:text-[11px] text-muted-foreground mt-0.5">{t.context}</p>
                 </div>
               </div>
 
             </div>
           ))}
+        </div>
+
+        {/* After-trust CTA — the ask lands right after the proof is read. */}
+        <div className="mt-10 sm:mt-14 flex justify-center">
+          <a
+            href={getWhatsAppLink("Halo Hafi Digital, saya ingin diskusi soal project website untuk bisnis saya.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-source="testimonials"
+            className="inline-flex items-center justify-center min-h-[52px] gap-2.5 px-7 sm:px-9 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm sm:text-base shadow-theme transition-all hover:opacity-90 active:scale-95"
+          >
+            <MessageSquare className="w-5 h-5 shrink-0" />
+            <span>Diskusikan Project Anda</span>
+          </a>
         </div>
 
       </div>

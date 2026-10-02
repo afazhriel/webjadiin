@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { FAQ_ITEMS, FAQItem } from '../data/faq';
 import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react';
 import { getWhatsAppLink } from '../data/config';
+import { track } from '../lib/analytics';
 
 export const FAQ: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0].id);
 
   const toggleAccordion = (id: string) => {
+    // Fire only when a question is opened, not when it is collapsed.
+    if (openId !== id) {
+      track('faq_open', { faq: id });
+    }
     setOpenId(openId === id ? null : id);
   };
 
@@ -94,6 +99,7 @@ export const FAQ: React.FC = () => {
             href={getWhatsAppLink("Halo Hafi Digital, saya punya pertanyaan mengenai pengerjaan website.")}
             target="_blank"
             rel="noopener noreferrer"
+            data-source="faq"
             className="w-full sm:w-auto min-h-[48px] px-5 py-2.5 rounded-xl bg-primary hover:opacity-90 text-primary-foreground font-bold text-xs flex items-center justify-center gap-2 shrink-0 transition-all"
           >
             <MessageSquare className="w-4 h-4 shrink-0" />

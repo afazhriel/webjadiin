@@ -58,10 +58,11 @@ export const FinalCTA: React.FC = () => {
               href={getWhatsAppLink("Halo Hafi Digital, saya siap mulai konsultasi untuk pembuatan website bisnis.")}
               target="_blank"
               rel="noopener noreferrer"
+              data-source="final_cta"
               className="w-full sm:w-auto min-h-[52px] px-6 sm:px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:opacity-90 font-black text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 shadow-theme transition-all active:scale-95"
             >
               <MessageSquare className="w-5 h-5 shrink-0 fill-primary-foreground/20" />
-              <span>Konsultasikan Bisnis Anda</span>
+              <span>Konsultasi Gratis</span>
               <ArrowRight className="w-5 h-5 shrink-0" />
             </a>
 
@@ -72,6 +73,13 @@ export const FinalCTA: React.FC = () => {
               Lihat Paket & Harga
             </button>
           </div>
+
+          <p className="text-[11px] sm:text-xs text-muted-foreground">
+            Lebih suka mengisi form?{' '}
+            <a href="#contact" data-source="final_cta" className="text-accent-foreground underline font-semibold hover:opacity-80">
+              Isi form konsultasi
+            </a>
+          </p>
 
           <div className="text-[11px] sm:text-xs text-muted-foreground flex items-start sm:items-center justify-center gap-1.5 pt-2 text-center">
             <ShieldCheck className="w-4 h-4 shrink-0 mt-0.5 sm:mt-0 text-accent-foreground" />

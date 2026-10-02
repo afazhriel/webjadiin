@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BRAND_CONFIG } from '@/data/config';
+import { initAnalytics, initConversionTracking } from '@/lib/analytics';
 import { CinematicHero } from '@/components/ui/cinematic-landing-hero';
 import { Navbar } from '@/components/Navbar';
 import { TrustSection } from '@/components/TrustSection';
@@ -19,6 +20,11 @@ import { ContactForm } from '@/components/ContactForm';
 import { Footer } from '@/components/Footer';
 
 export default function App() {
+  useEffect(() => {
+    initAnalytics();
+    initConversionTracking();
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground font-sans">
       
@@ -26,8 +32,7 @@ export default function App() {
       <Navbar />
 
       {/* 1. CINEMATIC HERO (Main Opening Section)
-          Text only — the hero introduces the offer, the CTAs live in the
-          navbar and in the sections below. */}
+          Introduces the offer and gives one low-friction WhatsApp CTA. */}
       <CinematicHero
         brandName={BRAND_CONFIG.nameUpper}
         tagline1="Bisnis Anda Sudah Bagus."
@@ -35,49 +40,50 @@ export default function App() {
         cardDescription="Dari company profile, landing page, sampai toko online, kami membuat website yang menyatukan informasi bisnis Anda dalam satu tempat, sehingga calon pelanggan lebih mudah memahami dan menghubungi Anda."
       />
 
-      {/* 2. TRUST / SOCIAL PROOF */}
-      <TrustSection />
-
-      {/* 3. PROBLEM SECTION */}
+      {/* 2. PROBLEM SECTION — the visitor's pain first, so the offer lands
+          as the answer rather than an interruption. */}
       <Problems />
 
-      {/* 4. SERVICES SECTION */}
+      {/* 3. SERVICES SECTION — what we do, framed as business value. */}
       <Services />
 
-      {/* 5. PRICING SECTION */}
-      <Pricing />
-
-      {/* 6. COMPARISON SECTION */}
-      <Comparison />
-
-      {/* 7. BENEFITS SECTION */}
+      {/* 4. BENEFITS SECTION — what the website does for the business. */}
       <Benefits />
 
-      {/* 8. PROMOTION SECTION */}
-      <Promotion />
-
-      {/* 9. HOW IT WORKS SECTION */}
+      {/* 5. HOW IT WORKS SECTION — the process, to make the work feel safe. */}
       <HowItWorks />
 
-      {/* 10. INFINITE 3D PHOTOGRAPHY GALLERY */}
+      {/* 6. INFINITE 3D PHOTOGRAPHY GALLERY — visual palette cleanser. */}
       <InfiniteGallerySection />
 
-      {/* 11. PORTFOLIO SECTION */}
+      {/* 7. PORTFOLIO SECTION — proof of real work. */}
       <Portfolio />
 
-      {/* 11. TESTIMONIALS SECTION */}
+      {/* 8. TRUST / SOCIAL PROOF — named projects and what is included. */}
+      <TrustSection />
+
+      {/* 9. TESTIMONIALS SECTION — third-party validation. */}
       <Testimonials />
 
-      {/* 12. FAQ SECTION */}
+      {/* 10. PRICING SECTION — price after the value and proof are understood. */}
+      <Pricing />
+
+      {/* 11. COMPARISON SECTION */}
+      <Comparison />
+
+      {/* 12. PROMOTION SECTION */}
+      <Promotion />
+
+      {/* 13. FAQ SECTION — last objections before the ask. */}
       <FAQ />
 
-      {/* 13. CONTACT FORM SECTION */}
+      {/* 14. CONTACT FORM SECTION */}
       <ContactForm />
 
-      {/* 14. FINAL CTA SECTION */}
+      {/* 15. FINAL CTA SECTION */}
       <FinalCTA />
 
-      {/* 14. FOOTER */}
+      {/* 16. FOOTER */}
       <Footer />
 
     </div>

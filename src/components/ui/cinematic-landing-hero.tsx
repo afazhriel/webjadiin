@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { BRAND_CONFIG } from '../../data/config';
+import { MessageSquare, ArrowRight } from 'lucide-react';
+import { BRAND_CONFIG, getWhatsAppLink } from '../../data/config';
 
 /**
  * Hero Section — background & decorative typography layer only.
@@ -108,9 +109,9 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
       </div>
 
       {/* Copy layer — the part of the hero that actually speaks.
-          Sits above the decorative wordmark. Deliberately text only: the
-          primary CTAs already live in the navbar and again in the sections
-          below, so this block introduces the offer without adding buttons. */}
+          Sits above the decorative wordmark. One primary CTA is enough here:
+          it appears under the offer, then repeats contextually in the
+          sections below. */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <h1 className="text-[26px] leading-[1.18] sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.06] font-extrabold font-grotesk text-foreground text-balance">
           {tagline1}
@@ -127,6 +128,29 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
             {cardDescription}
           </p>
         )}
+
+        <div className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <a
+            href={getWhatsAppLink("Halo Hafi Digital, saya tertarik membuat website untuk bisnis saya. Saya ingin konsultasi mengenai kebutuhan dan jenis website yang paling sesuai.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="hero_cta_click"
+            data-source="hero"
+            className="inline-flex w-full sm:w-auto items-center justify-center min-h-[52px] gap-2.5 px-7 sm:px-9 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm sm:text-base shadow-theme transition-all hover:opacity-90 active:scale-95"
+          >
+            <MessageSquare className="w-5 h-5 shrink-0" />
+            <span>Konsultasikan Bisnis Anda</span>
+          </a>
+
+          <a
+            href="#portfolio"
+            data-source="hero"
+            className="inline-flex w-full sm:w-auto items-center justify-center min-h-[52px] gap-2.5 px-7 sm:px-9 py-4 rounded-xl bg-secondary text-secondary-foreground border border-border font-bold text-sm sm:text-base transition-all hover:bg-accent hover:text-accent-foreground active:scale-95"
+          >
+            <span>Lihat Project Kami</span>
+            <ArrowRight className="w-5 h-5 shrink-0" />
+          </a>
+        </div>
       </div>
     </section>
   );

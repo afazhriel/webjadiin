@@ -23,7 +23,7 @@ export const BRAND_CONFIG = {
   nameUpper: "HAFI DIGITAL",
   monogram: "H",
   tagline: "Website untuk Bisnis yang Sedang Tumbuh",
-  description: "Hafi Digital membantu bisnis tampil lebih meyakinkan lewat website company profile, landing page, dan toko online yang mudah dipahami calon pelanggan.",
+  description: "Hafi Digital adalah jasa pembuatan website untuk pemilik bisnis di Indonesia — company profile, landing page, dan toko online. Kami menyusun struktur halaman, visual, dan alur kontak agar calon pelanggan cepat memahami bisnis Anda dan tahu langkah berikutnya.",
   website: "https://hafi.digital",
   email: "halo@hafi.digital",
   phone: "+62 882-2617-3208",

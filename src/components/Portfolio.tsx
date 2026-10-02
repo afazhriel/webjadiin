@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_ITEMS, PortfolioItem } from '../data/portfolio';
-import { ExternalLink, TrendingUp, Sparkles } from 'lucide-react';
+import { ExternalLink, Sparkles } from 'lucide-react';
 import { getWhatsAppLink } from '../data/config';
 
 export const Portfolio: React.FC = () => {
@@ -28,7 +28,7 @@ export const Portfolio: React.FC = () => {
             Website yang Sudah Kami Kerjakan
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            Lihat hasil kerja kami pada beberapa jenis bisnis. Ingin yang serupa untuk bisnis Anda?
+            Setiap project menunjukkan jenis bisnis, kebutuhan yang kami selesaikan, dan fokus pengerjaannya. Ingin yang serupa untuk bisnis Anda?
           </p>
         </div>
 
@@ -74,12 +74,6 @@ export const Portfolio: React.FC = () => {
                       {item.category}
                     </span>
                   </div>
-
-                  {/* Metrics Overlay — status indicator keeps its own colour */}
-                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 max-w-[55%] px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold text-[10px] sm:text-xs flex items-center gap-1.5 backdrop-blur-md">
-                    <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                    <span className="truncate">{item.metrics}</span>
-                  </div>
                 </div>
 
                 {/* Content Details */}
@@ -108,6 +102,9 @@ export const Portfolio: React.FC = () => {
                   href={getWhatsAppLink(`Halo Hafi Digital, saya sangat suka desain seperti project portfolio ${item.title}. Bisa buatkan konsep seperti ini?`)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-track="portfolio_click"
+                  data-source="portfolio"
+                  data-project={item.id}
                   className="w-full min-h-[44px] py-2.5 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground font-semibold text-xs transition-all flex items-center justify-center gap-2 border border-border hover:border-transparent"
                 >
                   <Sparkles className="w-3.5 h-3.5 shrink-0" />
