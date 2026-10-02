@@ -28,29 +28,42 @@ export default async function handler(req, res) {
     const { Resend } = await import('resend');
     const resend = new Resend(apiKey);
 
-    const html = 
-      <div style=\"font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto;\">
-        <h2>Hafi Digital — New Contact Request</h2>
-        <table style=\"width: 100%; border-collapse: collapse;\">
-          <tr><td style=\"padding: 8px; font-weight: bold;\">Name</td><td style=\"padding: 8px;\"></td></tr>
-          <tr><td style=\"padding: 8px; font-weight: bold;\">Email</td><td style=\"padding: 8px;\"></td></tr>
-          <tr><td style=\"padding: 8px; font-weight: bold;\">Phone</td><td style=\"padding: 8px;\"></td></tr>
-          <tr><td style=\"padding: 8px; font-weight: bold;\">Subject/Service</td><td style=\"padding: 8px;\"></td></tr>
-          <tr><td style=\"padding: 8px; font-weight: bold; vertical-align: top;\">Message</td><td style=\"padding: 8px; white-space: pre-wrap;\"></td></tr>
-          <tr><td style=\"padding: 8px; font-weight: bold;\">Time</td><td style=\"padding: 8px;\"></td></tr>
-        </table>
-      </div>
-    ;
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
 
-    const text = Hafi Digital — New Contact Request\n\nName: \nEmail: \nPhone: \nSubject/Service: \nMessage: \nTime: ;
+    const html = '<div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto;">' +
+      '<h2>Hafi Digital - New Contact Request</h2>' +
+      '<table style="width: 100%; border-collapse: collapse;">' +
+      '<tr><td style="padding: 8px; font-weight: bold;">Name</td><td style="padding: 8px;">' + escapeHtml(name) + '</td></tr>' +
+      '<tr><td style="padding: 8px; font-weight: bold;">Email</td><td style="padding: 8px;">' + escapeHtml(email) + '</td></tr>' +
+      '<tr><td style="padding: 8px; font-weight: bold;">Phone</td><td style="padding: 8px;">' + escapeHtml(phone || '-') + '</td></tr>' +
+      '<tr><td style="padding: 8px; font-weight: bold;">Subject/Service</td><td style="padding: 8px;">' + escapeHtml(subject || '-') + '</td></tr>' +
+      '<tr><td style="padding: 8px; font-weight: bold; vertical-align: top;">Message</td><td style="padding: 8px; white-space: pre-wrap;">' + escapeHtml(message) + '</td></tr>' +
+      '<tr><td style="padding: 8px; font-weight: bold;">Time</td><td style="padding: 8px;">' + new Date().toISOString() + '</td></tr>' +
+      '</table>' +
+      '</div>';
+
+    const text = 'Hafi Digital - New Contact Request\n\n' +
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Phone: ' + (phone || '-') + '\n' +
+      'Subject/Service: ' + (subject || '-') + '\n' +
+      'Message: ' + message + '\n' +
+      'Time: ' + new Date().toISOString();
 
     const { error } = await resend.emails.send({
       from: 'Hafi Digital <halo@hafi.digital>',
       to: ['halo@hafi.digital'],
       replyTo: email,
-      subject: 'New Contact Form — Hafi Digital',
-      html,
-      text,
+      subject: 'New Contact Form - Hafi Digital',
+      html: html,
+      text: text,
     });
 
     if (error) {
@@ -63,13 +76,4 @@ export default async function handler(req, res) {
     console.error('Contact API error:', error);
     return res.status(500).json({ message: 'Server error' });
   }
-}
-
-function escapeHtml(str) {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\"/g, '&quot;')
-    .replace(/'/g, '&#039;');
 }
