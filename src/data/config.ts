@@ -25,7 +25,7 @@ export const BRAND_CONFIG = {
   tagline: "Digital Presence, Redefined",
   description: "Bantu bisnis Anda tampil 10x lebih profesional dengan website modern, ultra-fast, dan high-converting.",
   website: "https://hafi.digital",
-  email: "halo@nexadigital.co.id",
+  email: "halo@hafi.digital",
   phone: "+62 882-2617-3208",
   address: `${BRAND_ADDRESS.streetAddress}, Kabupaten Bandung Barat ${BRAND_ADDRESS.postalCode}`,
   addressLines: BRAND_ADDRESS_LINES,
